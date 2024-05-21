@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ivdl6tb1uqmb"]
+
+[ext_resource type="Texture2D" uid="uid://52k5d3qijp1j" path="res://Art/UI/Sound/S_AtlasVolume.tres" id="1_6snf6"]
+
+[node name="P_ButtonSound" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_6snf6")
+flat = true
+icon_alignment = 1
+expand_icon = true

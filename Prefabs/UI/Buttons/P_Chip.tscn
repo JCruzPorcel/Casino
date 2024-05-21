@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwee34akuck1u"]
+
+[ext_resource type="Texture2D" uid="uid://c27ue0xelce10" path="res://Art/Chip/S_Chip_Background.svg" id="1_ds6tq"]
+[ext_resource type="Script" path="res://Scripts/Casino/Chip.gd" id="1_lerja"]
+[ext_resource type="Texture2D" uid="uid://bdhs0av8qbbrv" path="res://Art/Chip/S_Chip_Border.svg" id="2_3ty0x"]
+[ext_resource type="Texture2D" uid="uid://gh8v1i5uddcc" path="res://Art/Chip/S_Chip_Center.svg" id="3_e1xpg"]
+[ext_resource type="Script" path="res://Scripts/UI/ChipController.gd" id="5_nu3ou"]
+
+[node name="P_Chip" type="Control" node_paths=PackedStringArray("chip_textures", "label_value")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+script = ExtResource("1_lerja")
+color = Color(0.490885, 0.576552, 0.541351, 1)
+chip_textures = [NodePath("Texture_Container/S_Chip_Background"), NodePath("Texture_Container/S_Chip_Border"), NodePath("Texture_Container/S_Chip_Center")]
+label_value = NodePath("Button/Label_Value")
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture_Container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="S_Chip_Background" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("1_ds6tq")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="S_Chip_Border" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_3ty0x")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="S_Chip_Center" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("3_e1xpg")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("chip_prefab", "texture_container")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.213021
+anchor_right = 0.786979
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(550, 540)
+mouse_filter = 1
+flat = true
+script = ExtResource("5_nu3ou")
+chip_prefab = NodePath("..")
+texture_container = NodePath("../Texture_Container")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Value" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="." to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Button" method="_on_mouse_exited"]
+[connection signal="gui_input" from="Button" to="Button" method="_on_global_input"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

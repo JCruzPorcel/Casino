@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://epabprjp13eb"]
+
+[ext_resource type="Texture2D" uid="uid://o1v7r6bqys0i" path="res://Art/UI/Timer/progress-bar-circle.png" id="1_a7fpp"]
+[ext_resource type="Texture2D" uid="uid://cwab3l3largcx" path="res://Art/UI/Timer/progress-bar-frame.png" id="2_l2kla"]
+
+[node name="UI_Cooldown_Timer" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.466667
+anchor_top = 0.440741
+anchor_right = 0.533333
+anchor_bottom = 0.559259
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("1_a7fpp")
+texture_over = ExtResource("2_l2kla")
+texture_progress = ExtResource("1_a7fpp")
+tint_under = Color(0, 0, 0, 0.392157)
+tint_over = Color(1, 1, 1, 0.784314)
+tint_progress = Color(1, 1, 1, 0.784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 52
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
