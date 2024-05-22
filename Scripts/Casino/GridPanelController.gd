@@ -41,33 +41,34 @@ func _ready():
 #region Button Setup Functions
 func set_zero_buttons():
 	var double_zero_button = $Zero_Double_Zero/GridContainer/P_Button_00
-	var double_zero_color_rect = double_zero_button.get_node("ColorRect")
-	var double_zero_label = double_zero_button.get_node("Label")
 
 	double_zero_button.visible = enable_double_zero
-	double_zero_color_rect.color = zero_color
-	double_zero_label.text = "00"
+
+	double_zero_button.set_button_type(double_zero_button.ButtonType.DOUBLE_ZERO, double_zero_button.ColorType.ZERO)
+	double_zero_button.set_number_id(00)
+	double_zero_button.set_text_label("00")
+	double_zero_button.set_rect_color(zero_color)
 
 	var zero_button = $Zero_Double_Zero/GridContainer/P_Button_0
-	var zero_color_rect = zero_button.get_node("ColorRect")
-	var zero_label = zero_button.get_node("Label")
 
-	zero_color_rect.color = zero_color
-	zero_label.text = "0"
+	zero_button.set_button_type(zero_button.ButtonType.ZERO, zero_button.ColorType.ZERO)
+	zero_button.set_number_id(0)
+	zero_button.set_text_label("0")
+	zero_button.set_rect_color(zero_color)
+
 
 func set_special_buttons():
 	# Color buttons
-	var button_color_1 = $ST_12/Bot/Color_Red_Black/P_Button_Red.get_node("ColorRect")
-	var button_color_2 = $ST_12/Bot/Color_Red_Black/P_Button_Black.get_node("ColorRect")
-
-	button_color_1.color = color_option_1
-	button_color_2.color = color_option_2
-
-	# Assign color names to labels
-	var label_color_1 = button_color_1.get_parent().get_node("Label")
-	var label_color_2 = button_color_2.get_parent().get_node("Label")
-	label_color_1.text = color_name_1
-	label_color_2.text = color_name_2
+	var button_color_1 = $ST_12/Bot/Color_Red_Black/P_Button_Red
+	var button_color_2 = $ST_12/Bot/Color_Red_Black/P_Button_Black
+	
+	button_color_1.set_button_type(button_color_1.ButtonType.COLOR_1, button_color_1.ColorType.COLOR_1)
+	button_color_1.set_text_label(color_name_1)
+	button_color_1.set_rect_color(color_option_1)
+	
+	button_color_2.set_button_type(button_color_2.ButtonType.COLOR_2, button_color_2.ColorType.COLOR_2)
+	button_color_2.set_text_label(color_name_2)
+	button_color_2.set_rect_color(color_option_2)
 
 	# Number labels with font size adjustment
 	var labels_to_resize = [
@@ -101,38 +102,37 @@ func set_special_buttons():
 	]
 
 	for button in generic_buttons:
-		var button_color_rect = button.get_node("ColorRect")
-		button_color_rect.color = generic_color
+		button.set_rect_color(generic_color)
 
 	var button_1_to_18 = $ST_12/Bot/_1_To_18_Even/P_Button_1To18
-	button_1_to_18.get_node("Label").text = _1_to_18
+	button_1_to_18.set_text_label(_1_to_18)
 
 	var button_even = $ST_12/Bot/_1_To_18_Even/P_Button_Even
-	button_even.get_node("Label").text = even
+	button_even.set_text_label(even)
 
 	var button_odd = $ST_12/Bot/Odd_19_To_36/P_Button_Odd
-	button_odd.get_node("Label").text = odd
+	button_odd.set_text_label(odd)
 
 	var button_19_to_36 = $ST_12/Bot/Odd_19_To_36/P_Button_19To36
-	button_19_to_36.get_node("Label").text = _19_to_36
+	button_19_to_36.set_text_label(_19_to_36)
 
 	# 2 to 1 buttons
 	var button_2_to_1_1 = $"2_To_1/GridContainer/P_Button_Number"
 	var button_2_to_1_2 = $"2_To_1/GridContainer/P_Button_Number2"
 	var button_2_to_1_3 = $"2_To_1/GridContainer/P_Button_Number3"
 
-	button_2_to_1_1.get_node("Label").text = _2_to_1
-	button_2_to_1_2.get_node("Label").text = _2_to_1
-	button_2_to_1_3.get_node("Label").text = _2_to_1
+	button_2_to_1_1.set_text_label(_2_to_1)
+	button_2_to_1_2.set_text_label(_2_to_1)
+	button_2_to_1_3.set_text_label(_2_to_1)
 
 	# ST_12 buttons
 	var button_st_12_1 = $ST_12/Bot/P_Button_1ST12
 	var button_st_12_2 = $ST_12/Bot/P_Button_2ND12
 	var button_st_12_3 = $ST_12/Bot/P_Button_3RD12
 
-	button_st_12_1.get_node("Label").text = st_12[0]
-	button_st_12_2.get_node("Label").text = st_12[1]
-	button_st_12_3.get_node("Label").text = st_12[2]
+	button_st_12_1.set_text_label(st_12[0])
+	button_st_12_2.set_text_label(st_12[1])
+	button_st_12_3.set_text_label(st_12[2])
 
 func set_button_colors():
 	var bot_row = $Numbers/Grid_Numbers/Bot_Row.get_children()
@@ -148,13 +148,12 @@ func set_row_colors(row_buttons, start_with_color1: bool, numbers: Array[int]):
 
 	for i in range(row_buttons.size()):
 		var button = row_buttons[i]
-		var color_rect = button.get_node("ColorRect")
 		if use_color1:
-			color_rect.color = color_option_1
+			button.set_rect_color(color_option_1)
 		else:
-			color_rect.color = color_option_2
+			button.set_rect_color(color_option_2)
 		use_color1 = !use_color1
 
-		var button_label = button.get_node("Label")
-		button_label.text = str(numbers[i])
+		button.set_text_label(str(numbers[i]))
+		button.set_number_id(numbers[i])
 #endregion

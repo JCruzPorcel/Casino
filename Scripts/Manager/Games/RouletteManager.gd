@@ -96,7 +96,3 @@ func ChangeCount(_gameID, _gameState):
 func random_number()->int:
 	var number_rng:int = randi_range(0,37)
 	return number_rng
-
-func number_color():
-	# TODO: Pasar color del numero ganador
-	pass

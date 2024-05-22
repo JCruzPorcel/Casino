@@ -13,3 +13,7 @@ func set_selected_chip(chip):
 
 func is_chip_selected(chip)-> bool:
 	return chip == chip_selected
+
+
+func place_bet():
+	pass
