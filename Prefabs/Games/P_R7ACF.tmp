@@ -12,19 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_om8vr")
-color_option_1 = Color(0.956863, 0.196078, 0.32549, 1)
-color_option_2 = Color(0.0383972, 0.0383971, 0.0383972, 1)
+color_option_1 = Color(0.051971, 0.051971, 0.051971, 1)
+color_option_2 = Color(0.956763, 0.19591, 0.327341, 1)
 background_color = Color(0, 0.301961, 0.101961, 1)
-generic_color = Color(0.133333, 0.141176, 0.121569, 1)
-zero_color = Color(0.147593, 0.705227, 0.490253, 1)
-_2_to_1 = "2TO1"
-st_12 = Array[String](["1ST12", "2ND12", "3RD12"])
-_1_to_18 = "1TO18"
-even = "EVEN"
-odd = "ODD"
-_19_to_36 = "19TO36"
-color_name_1 = "RED"
-color_name_2 = "BLACK"
+enable_double_zero = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -61,134 +52,167 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Grid_Numbers" type="GridContainer" parent="Numbers"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -472.0
-offset_top = -116.5
-offset_right = 472.0
-offset_bottom = 116.5
+anchors_preset = -1
+anchor_left = 0.386979
+anchor_top = 0.436574
+anchor_right = 0.613021
+anchor_bottom = 0.563426
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
 
 [node name="P_Button_3" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "3"
 
 [node name="P_Button_6" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "6"
 
 [node name="P_Button_9" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "9"
 
 [node name="P_Button_12" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "12"
 
 [node name="P_Button_15" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "15"
 
 [node name="P_Button_18" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "18"
 
 [node name="P_Button_21" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "21"
 
 [node name="P_Button_24" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "24"
 
 [node name="P_Button_27" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "27"
 
 [node name="P_Button_30" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "30"
 
 [node name="P_Button_33" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "33"
 
 [node name="P_Button_36" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "36"
 
 [node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
 
 [node name="P_Button_2" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "2"
 
 [node name="P_Button_5" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "5"
 
 [node name="P_Button_8" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "8"
 
 [node name="P_Button_11" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "12"
 
 [node name="P_Button_14" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "14"
 
 [node name="P_Button_17" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "17"
 
 [node name="P_Button_20" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "20"
 
 [node name="P_Button_23" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "23"
 
 [node name="P_Button_26" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "26"
 
 [node name="P_Button_29" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "29"
 
 [node name="P_Button_32" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "32"
 
 [node name="P_Button_35" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "35"
 
 [node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
 
 [node name="P_Button_1" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "1"
 
 [node name="P_Button_4" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "4"
 
 [node name="P_Button_7" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "7"
 
 [node name="P_Button_10" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "10"
 
 [node name="P_Button_13" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "13"
 
 [node name="P_Button_16" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "16"
 
 [node name="P_Button_19" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "19"
 
 [node name="P_Button_22" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "22"
 
 [node name="P_Button_25" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "25"
 
 [node name="P_Button_28" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "28"
 
 [node name="P_Button_31" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "31"
 
 [node name="P_Button_34" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "34"
 
 [node name="2_To_1" type="Control" parent="."]
 layout_mode = 1
@@ -199,6 +223,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="2_To_1"]
 layout_mode = 1
@@ -207,27 +232,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 417.0
-offset_top = -52.0
-offset_right = 650.0
-offset_bottom = 48.0
+offset_left = 408.0
+offset_top = -50.0
+offset_right = 656.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-pivot_offset = Vector2(116, 50)
+pivot_offset = Vector2(124, 50)
 columns = 3
 
 [node name="P_Button_Number" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(75, 100)
+custom_minimum_size = Vector2(80, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "2To1"
 
 [node name="P_Button_Number2" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(75, 85)
+custom_minimum_size = Vector2(80, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "2To1"
 
 [node name="P_Button_Number3" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(75, 85)
+custom_minimum_size = Vector2(80, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "2To1"
 
 [node name="ST_12" type="Control" parent="."]
 layout_mode = 1
@@ -262,25 +293,35 @@ metadata/_edit_use_anchors_ = true
 [node name="P_Button_1ST12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "1ST12"
 
 [node name="P_Button_2ND12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "2ND12"
 
 [node name="P_Button_3RD12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "3RD12"
 
-[node name="_1_To_18_Even" type="HBoxContainer" parent="ST_12/Bot"]
+[node name="1_To_18_Even" type="HBoxContainer" parent="ST_12/Bot"]
 layout_mode = 2
 
-[node name="P_Button_1To18" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_1To18" parent="ST_12/Bot/1_To_18_Even" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1TO18"
 
-[node name="P_Button_Even" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_Even" parent="ST_12/Bot/1_To_18_Even" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "EVEN"
 
 [node name="Color_Red_Black" type="HBoxContainer" parent="ST_12/Bot"]
 layout_mode = 2
@@ -288,10 +329,14 @@ layout_mode = 2
 [node name="P_Button_Red" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "RED"
 
 [node name="P_Button_Black" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BLACK"
 
 [node name="Odd_19_To_36" type="HBoxContainer" parent="ST_12/Bot"]
 layout_mode = 2
@@ -299,10 +344,14 @@ layout_mode = 2
 [node name="P_Button_Odd" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "ODD"
 
 [node name="P_Button_19To36" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "19TO36"
 
 [node name="Zero_Double_Zero" type="Control" parent="."]
 layout_mode = 1
@@ -333,7 +382,9 @@ theme_override_constants/v_separation = 10
 
 [node name="P_Button_0" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
+text = "0"
 
 [node name="P_Button_00" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
 visible = false
 layout_mode = 2
+text = "00"

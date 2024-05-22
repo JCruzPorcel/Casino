@@ -12,10 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_om8vr")
-color_option_1 = Color(0.956863, 0.196078, 0.32549, 1)
-color_option_2 = Color(0.0383972, 0.0383971, 0.0383972, 1)
+color_option_1 = Color(0.051971, 0.051971, 0.051971, 1)
+color_option_2 = Color(0.956763, 0.19591, 0.327341, 1)
 background_color = Color(0, 0.301961, 0.101961, 1)
-generic_color = Color(0.133333, 0.141176, 0.121569, 1)
 zero_color = Color(0.147593, 0.705227, 0.490253, 1)
 _2_to_1 = "2TO1"
 st_12 = Array[String](["1ST12", "2ND12", "3RD12"])
@@ -23,8 +22,8 @@ _1_to_18 = "1TO18"
 even = "EVEN"
 odd = "ODD"
 _19_to_36 = "19TO36"
-color_name_1 = "RED"
-color_name_2 = "BLACK"
+color_name_1 = "BLACK"
+color_name_2 = "RED"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
