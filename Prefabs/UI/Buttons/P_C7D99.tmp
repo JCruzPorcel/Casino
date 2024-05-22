@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Casino/Chip.gd" id="1_lerja"]
 [ext_resource type="Texture2D" uid="uid://bdhs0av8qbbrv" path="res://Art/Chip/S_Chip_Border.svg" id="2_3ty0x"]
 [ext_resource type="Texture2D" uid="uid://gh8v1i5uddcc" path="res://Art/Chip/S_Chip_Center.svg" id="3_e1xpg"]
-[ext_resource type="Script" path="res://Scripts/Casino/ChipButton.gd" id="5_nu3ou"]
+[ext_resource type="Script" path="res://Scripts/UI/ChipButton.gd" id="5_nu3ou"]
 
 [node name="P_Chip" type="Control"]
 layout_mode = 3

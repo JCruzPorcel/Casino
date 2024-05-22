@@ -125,8 +125,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Environment_3D" type="Node3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 
 [node name="Label3D" type="Label3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Environment_3D"]
-text = "Label 3D
-Show/Hidden"
+text = "Soy un Label 3D"
 
 [node name="Camera3D" type="Camera3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Environment_3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613)
@@ -147,17 +146,17 @@ script = ExtResource("6_xdlg1")
 chip_prefab = ExtResource("6_55ne3")
 metadata/_edit_use_anchors_ = true
 
-[node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" groups=["Chips"] instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 50
 color = Color(0.643335, 0.293573, 0.641869, 1)
 
-[node name="P_Chip2" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip2" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" groups=["Chips"] instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 100
 color = Color(0.288043, 0.675675, 0.745545, 1)
 
-[node name="P_Chip3" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip3" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" groups=["Chips"] instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 500
 color = Color(0.65517, 0.463049, 0.291394, 1)
