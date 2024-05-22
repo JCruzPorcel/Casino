@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7i8mhbqcltnj"]
+[gd_scene load_steps=17 format=3 uid="uid://7i8mhbqcltnj"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UIController.gd" id="1_mku6x"]
 [ext_resource type="PackedScene" uid="uid://dnk75o2ahw" path="res://Prefabs/UI/Buttons/P_ButtonGame.tscn" id="1_ohcjn"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cdcvum532ot2q" path="res://Art/UI/Buttons/Game Icons/S_Poker.jpg" id="5_sxj6f"]
 [ext_resource type="PackedScene" uid="uid://epabprjp13eb" path="res://Prefabs/UI/P_Cooldown_Timer.tscn" id="5_ufhhb"]
 [ext_resource type="PackedScene" uid="uid://bwee34akuck1u" path="res://Prefabs/UI/Buttons/P_Chip.tscn" id="6_55ne3"]
+[ext_resource type="PackedScene" uid="uid://dleq6cbtbed0i" path="res://Prefabs/Games/P_Roulette_GridPanels.tscn" id="6_dybvj"]
 [ext_resource type="Script" path="res://Scripts/Casino/ChipController.gd" id="6_xdlg1"]
 [ext_resource type="PackedScene" uid="uid://ivdl6tb1uqmb" path="res://Prefabs/UI/Buttons/P_ButtonSound.tscn" id="9_0f47f"]
 
@@ -79,6 +80,7 @@ label_game_states = NodePath("=== TOP PANELS ===/UI_Top_Panels/Label_Game_State"
 [node name="=== GAMES ===" type="Node" parent="=== UI ===/UI_Canvas"]
 
 [node name="UI_Main" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,6 +133,10 @@ Show/Hidden"
 [node name="Camera3D" type="Camera3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Environment_3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613)
 
+[node name="P_Roulette_GridPanels" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" instance=ExtResource("6_dybvj")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
 anchors_preset = -1
@@ -163,6 +169,7 @@ value = 500
 color = Color(0.65517, 0.463049, 0.291394, 1)
 
 [node name="UI_Bingo" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,6 +179,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="UI_Poker" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
