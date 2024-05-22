@@ -57,7 +57,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Grid_Numbers" type="GridContainer" parent="Numbers"]
@@ -73,10 +73,12 @@ offset_right = 472.0
 offset_bottom = 116.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="P_Button_3" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
@@ -116,6 +118,7 @@ layout_mode = 2
 
 [node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="P_Button_2" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
@@ -155,6 +158,7 @@ layout_mode = 2
 
 [node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="P_Button_1" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
@@ -205,11 +209,13 @@ offset_right = 407.5
 offset_bottom = 112.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/v_separation = 15
 metadata/_edit_use_anchors_ = true
 
 [node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Next_To"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
@@ -270,6 +276,7 @@ flat = true
 
 [node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Next_To"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
@@ -330,6 +337,7 @@ flat = true
 
 [node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Next_To"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
@@ -401,11 +409,13 @@ offset_right = 407.5
 offset_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/v_separation = 55
 metadata/_edit_use_anchors_ = true
 
 [node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Center"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
@@ -466,6 +476,7 @@ flat = true
 
 [node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Center"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
@@ -543,6 +554,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Behind"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 14
 
 [node name="P_Button_3" parent="Numbers/Grid_Behind/Top_Row" instance=ExtResource("1_j3hgt")]
@@ -607,6 +619,7 @@ flat = true
 
 [node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Behind"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 14
 
 [node name="P_Button_1" parent="Numbers/Grid_Behind/Bot_Row" instance=ExtResource("1_j3hgt")]
@@ -678,7 +691,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="2_To_1"]
 layout_mode = 1
@@ -720,7 +734,7 @@ offset_left = -6.10352e-05
 offset_right = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Bot" type="GridContainer" parent="ST_12"]
@@ -794,7 +808,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="Zero_Double_Zero"]
