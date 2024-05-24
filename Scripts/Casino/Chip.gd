@@ -11,7 +11,7 @@ var label_value: Label
 func _ready():
 	id = get_new_id()
 	find_all_texture_rects(self)
-	find_label_in_button(self)
+	find_label_recursive(self)
 	if label_value:
 		label_value.text = str(value)
 	change_chip_color(color)
@@ -29,14 +29,13 @@ func find_all_texture_rects(node):
 		else:
 			find_all_texture_rects(child)
 
-func find_label_in_button(node):
+func find_label_recursive(node):
 	for child in node.get_children():
-		if child is Button:
-			for button_child in child.get_children():
-				if button_child is Label:
-					label_value = button_child
-		else:
-			find_label_in_button(child)
+		if child is Label:
+			label_value = child
+			return
+		elif child.get_child_count() > 0:
+			find_label_recursive(child)
 
 func change_chip_color(new_color: Color):
 	for chip in chip_textures:
@@ -46,3 +45,6 @@ func get_new_id() -> int:
 	var new_id = next_id
 	next_id += 1
 	return new_id
+
+func change_chip_size(size: Vector2):
+	self.scale = size

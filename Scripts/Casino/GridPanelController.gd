@@ -125,6 +125,10 @@ func set_special_buttons():
 	button_2_to_1_2.set_text_label(_2_to_1)
 	button_2_to_1_3.set_text_label(_2_to_1)
 
+	button_2_to_1_1.set_2_to_1_numbers(top_row_numbers)
+	button_2_to_1_2.set_2_to_1_numbers(mid_row_numbers)
+	button_2_to_1_3.set_2_to_1_numbers(bot_row_numbers)
+
 	# ST_12 buttons
 	var button_st_12_1 = $ST_12/Bot/P_Button_1ST12
 	var button_st_12_2 = $ST_12/Bot/P_Button_2ND12

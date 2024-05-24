@@ -136,6 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613
 
 [node name="P_Roulette_GridPanels" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" instance=ExtResource("6_dybvj")]
 layout_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Chip_Instance_Container" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
@@ -150,10 +151,10 @@ metadata/_edit_use_anchors_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.363021
-anchor_top = 0.842593
-anchor_right = 0.636979
-anchor_bottom = 0.966667
+anchor_left = 0.355208
+anchor_top = 0.807407
+anchor_right = 0.644792
+anchor_bottom = 0.927778
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -161,7 +162,6 @@ mouse_default_cursor_shape = 2
 alignment = 1
 script = ExtResource("6_xdlg1")
 chip_prefab = ExtResource("8_es3jf")
-chip_size = Vector2(0.35, 0.35)
 metadata/_edit_use_anchors_ = true
 
 [node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
@@ -264,9 +264,9 @@ layout_mode = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.946354
-anchor_top = 0.0140187
+anchor_top = 0.015
 anchor_right = 0.998438
-anchor_bottom = 0.481309
+anchor_bottom = 0.515001
 grow_horizontal = 0
 grow_vertical = 1
 mouse_default_cursor_shape = 2
@@ -311,23 +311,9 @@ theme_override_font_sizes/font_size = 42
 text = "Tokens: "
 vertical_alignment = 1
 
-[node name="Button_Exit" type="Button" parent="=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.969271
-anchor_top = 0.959259
-anchor_right = 0.991146
-anchor_bottom = 0.987963
-offset_top = -36.7889
-offset_bottom = -10.8694
-grow_horizontal = 0
-grow_vertical = 0
-text = "Salir"
-metadata/_edit_use_anchors_ = true
-
+[connection signal="gui_input" from="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" to="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" method="_on_chip_gui_input"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Poker" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Poker" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/P_ButtonSound" to="=== UTILITIES ===/AudioManager" method="_on_button_sounds_pressed"]
-[connection signal="pressed" from="=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels/Button_Exit" to="=== UI ===/UI_Canvas" method="_on_button_exit_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dleq6cbtbed0i"]
+[gd_scene load_steps=4 format=3 uid="uid://dleq6cbtbed0i"]
 
 [ext_resource type="PackedScene" uid="uid://cl684chx87t8b" path="res://Prefabs/UI/Buttons/P_Button.tscn" id="1_j3hgt"]
 [ext_resource type="Script" path="res://Scripts/Casino/GridPanelController.gd" id="1_om8vr"]
+[ext_resource type="Texture2D" uid="uid://c6q2wu7enmjqk" path="res://Art/Roulette_Grid_Panel.png" id="2_xcvgn"]
 
 [node name="P_Roulette_GridPanels" type="Control"]
 layout_mode = 3
@@ -33,6 +34,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.300676, 0.103004, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect_REF_DELETE" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xcvgn")
 metadata/_edit_use_anchors_ = true
 
 [node name="Numbers" type="Control" parent="."]
@@ -688,24 +701,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 483.0
-offset_top = -117.0
-offset_right = 568.0
-offset_bottom = 116.0
+offset_left = 417.0
+offset_top = -52.0
+offset_right = 650.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(42, 116)
+rotation = -1.5708
+pivot_offset = Vector2(116, 50)
+columns = 3
 
 [node name="P_Button_Number" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(85, 75)
+custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
 
 [node name="P_Button_Number2" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(85, 75)
+custom_minimum_size = Vector2(75, 85)
 layout_mode = 2
 
 [node name="P_Button_Number3" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
-custom_minimum_size = Vector2(85, 75)
+custom_minimum_size = Vector2(75, 85)
 layout_mode = 2
 
 [node name="ST_12" type="Control" parent="."]

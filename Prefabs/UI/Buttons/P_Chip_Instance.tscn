@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cap7epia57jts"]
+
+[ext_resource type="Script" path="res://Scripts/Casino/Chip.gd" id="1_s28u7"]
+[ext_resource type="Texture2D" uid="uid://c27ue0xelce10" path="res://Art/Chip/S_Chip_Background.svg" id="2_qv0it"]
+[ext_resource type="Texture2D" uid="uid://bdhs0av8qbbrv" path="res://Art/Chip/S_Chip_Border.svg" id="3_l0m66"]
+[ext_resource type="Texture2D" uid="uid://gh8v1i5uddcc" path="res://Art/Chip/S_Chip_Center.svg" id="4_riwu4"]
+
+[node name="P_Chip" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_s28u7")
+color = Color(0.490885, 0.576552, 0.541351, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Texture_Container" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="S_Chip_Background" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+texture = ExtResource("2_qv0it")
+stretch_mode = 5
+
+[node name="S_Chip_Border" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+texture = ExtResource("3_l0m66")
+stretch_mode = 5
+
+[node name="S_Chip_Center" type="TextureRect" parent="Texture_Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+mouse_filter = 2
+texture = ExtResource("4_riwu4")
+stretch_mode = 5
+
+[node name="Label_Value" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
+vertical_alignment = 1
