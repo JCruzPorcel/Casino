@@ -17,10 +17,11 @@ enum ButtonType {
 }
 
 enum ColorType {
+	NONE,
+	GENERIC,
 	ZERO,
 	COLOR_1,
 	COLOR_2,
-	GENERIC
 }
 
 var button_type: ButtonType
@@ -36,6 +37,10 @@ func set_button_type(new_button_type: ButtonType, new_color: ColorType):
 
 func set_betted_numbers(numbers: Array):
 	betted_numbers = numbers
+	if betted_numbers.size() > 0:
+		var sorted_numbers = betted_numbers.duplicate()
+		sorted_numbers.sort()
+		betted_numbers = sorted_numbers
 
 func set_number_id(new_number_id: int):
 	number_id = new_number_id
@@ -57,13 +62,15 @@ func _on_pressed():
 
 func get_color_type_as_text(color: ColorType) -> String:
 	match color:
+		ColorType.NONE:
+			return "NONE"
+		ColorType.GENERIC:
+			return "GENERIC"
 		ColorType.ZERO:
 			return "ZERO"
 		ColorType.COLOR_1:
 			return "COLOR_1"
 		ColorType.COLOR_2:
 			return "COLOR_2"
-		ColorType.GENERIC:
-			return "GENERIC"
 		_:
 			return "UNKNOWN"

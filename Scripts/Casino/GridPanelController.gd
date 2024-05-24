@@ -250,8 +250,6 @@ func get_dozen_numbers(dozen_number: int) -> Array[int]:
 		if number >= dozen_start and number <= dozen_end:
 			dozen_numbers.append(number)
 
-	dozen_numbers.sort()
-
 	return dozen_numbers
 
 func get_even_numbers() -> Array[int]:
@@ -267,7 +265,6 @@ func get_even_numbers() -> Array[int]:
 		if number % 2 == 0:
 			even_numbers.append(number)
 
-	even_numbers.sort()
 	return even_numbers
 
 func get_odd_numbers() -> Array[int]:
@@ -283,7 +280,6 @@ func get_odd_numbers() -> Array[int]:
 		if number % 2 != 0:
 			odd_numbers.append(number)
 
-	odd_numbers.sort()
 	return odd_numbers
 
 func get_color_1_numbers() -> Array[int]:
@@ -293,7 +289,6 @@ func get_color_1_numbers() -> Array[int]:
 		if number_colors[number] == color_option_1:  # Suponiendo que color_option_1 es rojo
 			red_numbers.append(number)
 
-	red_numbers.sort()
 	return red_numbers
 
 func get_color_2_numbers() -> Array[int]:
@@ -303,7 +298,6 @@ func get_color_2_numbers() -> Array[int]:
 		if number_colors[number] == color_option_2:  # Suponiendo que color_option_2 es negro
 			black_numbers.append(number)
 
-	black_numbers.sort()
 	return black_numbers
 
 func assign_vertical_adjacent_numbers(vertical_buttons: Array, top_row_buttons: Array, mid_row_buttons: Array, bot_row_buttons: Array):

@@ -1,0 +1,820 @@
+[gd_scene load_steps=3 format=3 uid="uid://dleq6cbtbed0i"]
+
+[ext_resource type="PackedScene" uid="uid://cl684chx87t8b" path="res://Prefabs/UI/Buttons/P_Button.tscn" id="1_j3hgt"]
+[ext_resource type="Script" path="res://Scripts/Casino/GridPanelController.gd" id="1_om8vr"]
+
+[node name="P_Roulette_GridPanels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_om8vr")
+color_option_1 = Color(0.956863, 0.196078, 0.32549, 1)
+color_option_2 = Color(0.0383972, 0.0383971, 0.0383972, 1)
+background_color = Color(0, 0.301961, 0.101961, 1)
+generic_color = Color(0.133333, 0.141176, 0.121569, 1)
+zero_color = Color(0.147593, 0.705227, 0.490253, 1)
+_2_to_1 = "2TO1"
+st_12 = Array[String](["1ST12", "2ND12", "3RD12"])
+_1_to_18 = "1TO18"
+even = "EVEN"
+odd = "ODD"
+_19_to_36 = "19TO36"
+color_name_1 = "RED"
+color_name_2 = "BLACK"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.300676, 0.103004, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Numbers" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Grid_Numbers" type="GridContainer" parent="Numbers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -116.5
+offset_right = 472.0
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="P_Button_3" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_6" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_9" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_12" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_15" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_18" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_21" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_24" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_27" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_30" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_33" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_36" parent="Numbers/Grid_Numbers/Top_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="P_Button_2" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_5" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_8" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_11" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_14" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_17" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_20" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_23" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_26" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_29" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_32" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_35" parent="Numbers/Grid_Numbers/Mid_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Numbers"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="P_Button_1" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_4" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_7" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_10" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_13" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_16" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_19" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_22" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_25" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_28" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_31" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_34" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="Grid_Horizontal" type="GridContainer" parent="Numbers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.5
+offset_top = -112.5
+offset_right = 407.5
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/v_separation = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="P_Button_3" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_6" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_9" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_12" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_15" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_18" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_21" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_24" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_27" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_30" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_33" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="P_Button_2" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_5" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_8" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_11" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_14" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_17" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_20" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_23" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_26" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_29" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_32" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="P_Button_1" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_4" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_7" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_10" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_13" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_16" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_19" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_22" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_25" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_28" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_31" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 65)
+layout_mode = 2
+flat = true
+
+[node name="Grid_Center" type="GridContainer" parent="Numbers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -407.5
+offset_top = -52.5
+offset_right = 407.5
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/v_separation = 55
+metadata/_edit_use_anchors_ = true
+
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Center"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="P_Button_3" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_6" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_9" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_12" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_15" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_18" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_21" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_24" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_27" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_30" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_33" parent="Numbers/Grid_Center/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Center"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="P_Button_1" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_4" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_7" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_10" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_13" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_16" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_19" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_22" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_25" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_28" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_31" parent="Numbers/Grid_Center/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="Grid_Vertical" type="GridContainer" parent="Numbers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -467.0
+offset_top = -52.5
+offset_right = 467.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/v_separation = 55
+metadata/_edit_use_anchors_ = true
+
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="P_Button_3" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_6" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_9" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_12" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_15" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_18" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_21" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_24" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_27" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_30" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_33" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_36" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="P_Button_1" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_4" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_7" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_10" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_13" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_16" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_19" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_22" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_25" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_28" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_31" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_34" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(65, 25)
+layout_mode = 2
+flat = true
+
+[node name="2_To_1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="2_To_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 483.0
+offset_top = -117.0
+offset_right = 568.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(42, 116)
+
+[node name="P_Button_Number" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(85, 75)
+layout_mode = 2
+
+[node name="P_Button_Number2" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(85, 75)
+layout_mode = 2
+
+[node name="P_Button_Number3" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(85, 75)
+layout_mode = 2
+
+[node name="ST_12" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.10352e-05
+offset_right = 6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Bot" type="GridContainer" parent="ST_12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = 129.0
+offset_right = 335.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(255, 79)
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="P_Button_1ST12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(310, 75)
+layout_mode = 2
+
+[node name="P_Button_2ND12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(310, 75)
+layout_mode = 2
+
+[node name="P_Button_3RD12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(310, 75)
+layout_mode = 2
+
+[node name="_1_To_18_Even" type="HBoxContainer" parent="ST_12/Bot"]
+layout_mode = 2
+
+[node name="P_Button_1To18" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="P_Button_Even" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="Color_Red_Black" type="HBoxContainer" parent="ST_12/Bot"]
+layout_mode = 2
+
+[node name="P_Button_Color_1" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="P_Button_Color_2" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="Odd_19_To_36" type="HBoxContainer" parent="ST_12/Bot"]
+layout_mode = 2
+
+[node name="P_Button_Odd" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="P_Button_19To36" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(155, 75)
+layout_mode = 2
+
+[node name="Zero_Double_Zero" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="Zero_Double_Zero"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -557.0
+offset_top = -40.0
+offset_right = -482.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(37, 40)
+theme_override_constants/v_separation = 10
+
+[node name="P_Button_0" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
+layout_mode = 2
+
+[node name="P_Button_00" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
+visible = false
+layout_mode = 2
