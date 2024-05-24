@@ -55,8 +55,8 @@ func set_rect_color(new_color: Color):
 
 func _on_pressed():
 	var button_size = size
-	var button_center = Rect2(global_position, button_size).position + button_size / 2
-	chip_controller.place_bet(button_center)
+	var button_center_pos = Rect2(global_position, button_size).position + button_size / 2
+	chip_controller.place_bet(button_center_pos)
 	print(betted_numbers)
 	print(get_color_type_as_text(color_type))
 

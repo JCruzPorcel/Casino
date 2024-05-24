@@ -28,5 +28,3 @@ func place_bet(new_position: Vector2):
 			new_chip.position = new_position
 			new_chip.change_chip_size(chip_size)
 			chip_container.add_child(new_chip)
-
-
