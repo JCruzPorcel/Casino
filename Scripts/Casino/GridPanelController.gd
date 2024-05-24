@@ -309,12 +309,45 @@ func assign_vertical_adjacent_numbers(vertical_buttons: Array, rows: Array):
 		vertical_buttons[0][i].set_betted_numbers([top_number, mid_number])
 		vertical_buttons[1][i].set_betted_numbers([mid_number, bot_number])
 
-func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, buttons_number: Array):
+func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, rows: Array):
 	for i in range(1, horizontal_buttons.size()):
-		var left_number = buttons_number[i - 1].betted_numbers[0]
-		var right_number = buttons_number[i].betted_numbers[0]
+		var left_number = rows[i - 1].betted_numbers[0]
+		var right_number = rows[i].betted_numbers[0]
 		horizontal_buttons[i - 1].set_betted_numbers([left_number, right_number])
 		horizontal_buttons[i].set_betted_numbers([left_number, right_number])
+
+func assign_center_adjacent_numbers(center_buttons: Array, rows: Array):
+	# Asegurarse de que center_buttons tiene dos subarrays
+	if center_buttons.size() != 2:
+		return
+	
+	# Procesar la fila superior de botones centrales
+	for i in range(center_buttons[0].size()):
+		var top_number = rows[0][i].betted_numbers[0]
+		var mid_number = rows[1][i].betted_numbers[0]
+		
+		# Evitar el desbordamiento de la lista
+		var top_number_left
+		var mid_number_left
+		
+		top_number_left = rows[0][i + 1].betted_numbers[0]
+		mid_number_left = rows[1][i + 1].betted_numbers[0]
+
+		center_buttons[0][i].set_betted_numbers([top_number, mid_number, top_number_left, mid_number_left])
+
+	# Procesar la fila inferior de botones centrales
+	for i in range(center_buttons[1].size()):
+		var mid_number = rows[1][i].betted_numbers[0]
+		var bot_number = rows[2][i].betted_numbers[0]
+		
+		# Evitar el desbordamiento de la lista
+		var mid_number_left
+		var bot_number_left
+		
+		mid_number_left = rows[1][i + 1].betted_numbers[0]
+		bot_number_left = rows[2][i + 1].betted_numbers[0]
+
+		center_buttons[1][i].set_betted_numbers([mid_number, bot_number, mid_number_left, bot_number_left])
 #endregion
 
 func assign_adjacents_numbers():
@@ -322,7 +355,7 @@ func assign_adjacents_numbers():
 		top_row,
 		mid_row,
 		bot_row
-]
+	]
 
 	var horizontal_buttons = [
 		[top_row, top_row_horizontal],
@@ -339,3 +372,11 @@ func assign_adjacents_numbers():
 	]
 
 	assign_vertical_adjacent_numbers(vertical_buttons, rows)
+
+	var center_buttons = [
+		top_row_center,
+		bot_row_center
+	]
+
+	assign_center_adjacent_numbers(center_buttons, rows)
+
