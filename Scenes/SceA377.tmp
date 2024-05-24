@@ -1,0 +1,334 @@
+[gd_scene load_steps=18 format=3 uid="uid://7i8mhbqcltnj"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UIController.gd" id="1_mku6x"]
+[ext_resource type="PackedScene" uid="uid://dnk75o2ahw" path="res://Prefabs/UI/Buttons/P_ButtonGame.tscn" id="1_ohcjn"]
+[ext_resource type="Script" path="res://Scripts/Manager/AudioManager.gd" id="1_srnks"]
+[ext_resource type="Texture2D" uid="uid://52k5d3qijp1j" path="res://Art/UI/Sound/S_AtlasVolume.tres" id="2_4i047"]
+[ext_resource type="Texture2D" uid="uid://c8uf2vsdx01si" path="res://Art/UI/Buttons/Game Icons/S_Bingo.jpg" id="2_j2fgl"]
+[ext_resource type="Texture2D" uid="uid://c77c8bejlg8k" path="res://Art/UI/Buttons/Game Icons/S_Casino.jpg" id="2_lf2ju"]
+[ext_resource type="VideoStream" path="res://Videos/V_CasinoLoop.ogv" id="2_ot47m"]
+[ext_resource type="Script" path="res://Scripts/Manager/Games/RouletteManager.gd" id="3_5sgxc"]
+[ext_resource type="Texture2D" uid="uid://1bgplkewixc5" path="res://Art/UI/Buttons/Game Icons/S_Roulette.png" id="3_jmwvq"]
+[ext_resource type="Texture2D" uid="uid://cdcvum532ot2q" path="res://Art/UI/Buttons/Game Icons/S_Poker.jpg" id="5_sxj6f"]
+[ext_resource type="PackedScene" uid="uid://epabprjp13eb" path="res://Prefabs/UI/P_Cooldown_Timer.tscn" id="5_ufhhb"]
+[ext_resource type="PackedScene" uid="uid://bwee34akuck1u" path="res://Prefabs/UI/Buttons/P_Chip.tscn" id="6_55ne3"]
+[ext_resource type="PackedScene" uid="uid://dleq6cbtbed0i" path="res://Prefabs/Games/P_Roulette_GridPanels.tscn" id="6_dybvj"]
+[ext_resource type="Script" path="res://Scripts/Casino/ChipController.gd" id="6_xdlg1"]
+[ext_resource type="PackedScene" uid="uid://cap7epia57jts" path="res://Prefabs/UI/Buttons/P_Chip_Instance.tscn" id="8_es3jf"]
+[ext_resource type="PackedScene" uid="uid://ivdl6tb1uqmb" path="res://Prefabs/UI/Buttons/P_ButtonSound.tscn" id="9_0f47f"]
+
+[sub_resource type="GDScript" id="GDScript_wxnwg"]
+script/source = "extends Node
+
+@export var tokens_label:Label
+var current_tokens:int = 0
+
+func _ready():
+	update_tokens()
+
+func _process(_delta):
+	if Input.is_action_pressed(\"ui_up\"):
+		deposit_tokens(500)
+	if Input.is_action_pressed(\"ui_down\"):
+		can_bet(500)
+
+func deposit_tokens(amount:int):
+	current_tokens += amount
+	update_tokens()
+
+func debit_tokens(amount:int):
+	current_tokens -= amount
+	update_tokens()
+
+func can_bet(amount:int)-> bool:
+	if(current_tokens >= amount):
+		debit_tokens(amount)
+	else:
+		print_debug(\"Tokens insuficientes para efectuar la operación\")
+		return false
+	
+	return true
+
+func update_tokens():
+	tokens_label.text = \"Tokens: \" + str(current_tokens)
+"
+
+[node name="Scene_Main" type="Node"]
+
+[node name="=== UTILITIES ===" type="Node" parent="."]
+
+[node name="AudioManager" type="Node" parent="=== UTILITIES ==="]
+script = ExtResource("1_srnks")
+button_icon_atlas = ExtResource("2_4i047")
+
+[node name="RouletteManager" type="Node" parent="=== UTILITIES ===" node_paths=PackedStringArray("ui_cd_timer", "winning_number_label")]
+script = ExtResource("3_5sgxc")
+ui_cd_timer = NodePath("../../=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette/UI_Cooldown_Timer")
+winning_number_label = NodePath("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Label_Winning_Number")
+
+[node name="TokenManager" type="Node" parent="=== UTILITIES ===" node_paths=PackedStringArray("tokens_label")]
+script = SubResource("GDScript_wxnwg")
+tokens_label = NodePath("../../=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels/Label_Tokens")
+
+[node name="=== UI ===" type="Node" parent="."]
+
+[node name="UI_Canvas" type="CanvasLayer" parent="=== UI ===" node_paths=PackedStringArray("canvases", "video_player", "label_game_states")]
+script = ExtResource("1_mku6x")
+canvases = [NodePath("=== GAMES ===/UI_Main"), NodePath("=== GAMES ===/UI_Roulette"), NodePath("=== GAMES ===/UI_Bingo"), NodePath("=== GAMES ===/UI_Poker")]
+video_player = NodePath("=== GAMES ===/UI_Main/VideoStreamPlayer")
+label_game_states = NodePath("=== TOP PANELS ===/UI_Top_Panels/Label_Game_State")
+
+[node name="=== GAMES ===" type="Node" parent="=== UI ===/UI_Canvas"]
+
+[node name="UI_Main" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("2_ot47m")
+autoplay = true
+expand = true
+loop = true
+metadata/_edit_use_anchors_ = true
+
+[node name="UI_Roulette" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Winning_Number" type="Label" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.236111
+anchor_right = 1.0
+anchor_bottom = 0.387963
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Environment_3D" type="Node3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+
+[node name="Label3D" type="Label3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Environment_3D"]
+text = "Label 3D
+Show/Hidden"
+
+[node name="Camera3D" type="Camera3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Environment_3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613)
+
+[node name="P_Roulette_GridPanels" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" instance=ExtResource("6_dybvj")]
+layout_mode = 1
+enable_double_zero = true
+
+[node name="Chip_Instance_Container" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.363021
+anchor_top = 0.842593
+anchor_right = 0.636979
+anchor_bottom = 0.966667
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+alignment = 1
+script = ExtResource("6_xdlg1")
+chip_prefab = ExtResource("8_es3jf")
+chip_size = Vector2(0.35, 0.35)
+metadata/_edit_use_anchors_ = true
+
+[node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+layout_mode = 2
+value = 50
+color = Color(0.643335, 0.293573, 0.641869, 1)
+
+[node name="P_Chip2" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+layout_mode = 2
+value = 100
+color = Color(0.288043, 0.675675, 0.745545, 1)
+
+[node name="P_Chip3" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+layout_mode = 2
+value = 500
+color = Color(0.65517, 0.463049, 0.291394, 1)
+
+[node name="UI_Bingo" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="UI_Poker" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="=== TOP PANELS ===" type="Node" parent="=== UI ===/UI_Canvas"]
+
+[node name="UI_Top_Panels" type="Control" parent="=== UI ===/UI_Canvas/=== TOP PANELS ==="]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.198148
+grow_horizontal = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer_Games" type="GridContainer" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.0280374
+anchor_right = 0.95
+anchor_bottom = 0.962617
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/h_separation = 2
+columns = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Main" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games" node_paths=PackedStringArray("ui_controller") instance=ExtResource("1_ohcjn")]
+layout_mode = 2
+ui_controller = NodePath("../../../..")
+icon_image = ExtResource("2_lf2ju")
+
+[node name="UI_Cooldown_Timer" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" instance=ExtResource("5_ufhhb")]
+layout_mode = 1
+
+[node name="Button_Roulette" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games" node_paths=PackedStringArray("ui_controller") instance=ExtResource("1_ohcjn")]
+layout_mode = 2
+ui_controller = NodePath("../../../..")
+game_id = 1
+icon_image = ExtResource("3_jmwvq")
+
+[node name="UI_Cooldown_Timer" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" instance=ExtResource("5_ufhhb")]
+layout_mode = 1
+
+[node name="Button_Bingo" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games" node_paths=PackedStringArray("ui_controller") instance=ExtResource("1_ohcjn")]
+layout_mode = 2
+ui_controller = NodePath("../../../..")
+game_id = 2
+icon_image = ExtResource("2_j2fgl")
+
+[node name="UI_Cooldown_Timer" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" instance=ExtResource("5_ufhhb")]
+layout_mode = 1
+
+[node name="Button_Poker" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games" node_paths=PackedStringArray("ui_controller") instance=ExtResource("1_ohcjn")]
+layout_mode = 2
+ui_controller = NodePath("../../../..")
+game_id = 3
+icon_image = ExtResource("5_sxj6f")
+
+[node name="UI_Cooldown_Timer" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Poker" instance=ExtResource("5_ufhhb")]
+layout_mode = 1
+
+[node name="P_ButtonSound" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels" instance=ExtResource("9_0f47f")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.946354
+anchor_top = 0.0140187
+anchor_right = 0.998438
+anchor_bottom = 0.481309
+grow_horizontal = 0
+grow_vertical = 1
+mouse_default_cursor_shape = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Game_State" type="Label" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -839.0
+offset_top = -59.9999
+offset_right = -539.0
+offset_bottom = 59.0001
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Current Game:
+Current State:"
+
+[node name="=== BOTTOM PANELS ===" type="Node" parent="=== UI ===/UI_Canvas"]
+
+[node name="UI_Bottom_Panels" type="Control" parent="=== UI ===/UI_Canvas/=== BOTTOM PANELS ==="]
+layout_mode = 3
+anchor_top = 0.836111
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Tokens" type="Label" parent="=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 0.00012207
+offset_right = 346.0
+offset_bottom = 58.0001
+theme_override_font_sizes/font_size = 42
+text = "Tokens: "
+vertical_alignment = 1
+
+[node name="Button_Exit" type="Button" parent="=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.969271
+anchor_top = 0.959259
+anchor_right = 0.991146
+anchor_bottom = 0.987963
+offset_top = -36.7889
+offset_bottom = -10.8694
+grow_horizontal = 0
+grow_vertical = 0
+text = "Salir"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" method="_on_pressed"]
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" method="_on_pressed"]
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" method="_on_pressed"]
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Poker" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Poker" method="_on_pressed"]
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/P_ButtonSound" to="=== UTILITIES ===/AudioManager" method="_on_button_sounds_pressed"]
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels/Button_Exit" to="=== UI ===/UI_Canvas" method="_on_button_exit_pressed"]

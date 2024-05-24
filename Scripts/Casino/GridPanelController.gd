@@ -300,17 +300,13 @@ func get_color_2_numbers() -> Array[int]:
 
 	return black_numbers
 
-func assign_vertical_adjacent_numbers(vertical_buttons: Array, top_row_buttons: Array, mid_row_buttons: Array, bot_row_buttons: Array):
-	for i in range(top_row_buttons.size()):
-		var top_number = top_row_buttons[i].betted_numbers[0]
-		var mid_number = mid_row_buttons[i].betted_numbers[0]
+func assign_vertical_adjacent_numbers(vertical_buttons: Array, rows: Array):
+	for i in range(rows[0].size()):
+		var top_number = rows[0][i].betted_numbers[0]
+		var mid_number = rows[1][i].betted_numbers[0]
+		var bot_number = rows[2][i].betted_numbers[0]
 
 		vertical_buttons[0][i].set_betted_numbers([top_number, mid_number])
-
-	for i in range(mid_row_buttons.size()):
-		var mid_number = mid_row_buttons[i].betted_numbers[0]
-		var bot_number = bot_row_buttons[i].betted_numbers[0]
-
 		vertical_buttons[1][i].set_betted_numbers([mid_number, bot_number])
 
 func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, buttons_number: Array):
@@ -322,6 +318,12 @@ func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, buttons_numbe
 #endregion
 
 func assign_adjacents_numbers():
+	var rows = [
+		top_row,
+		mid_row,
+		bot_row
+]
+
 	var horizontal_buttons = [
 		[top_row, top_row_horizontal],
 		[mid_row, mid_row_horizontal],
@@ -335,4 +337,5 @@ func assign_adjacents_numbers():
 	top_row_vertical,
 	bot_row_vertical
 	]
-	assign_vertical_adjacent_numbers(vertical_buttons, top_row, mid_row, bot_row)
+
+	assign_vertical_adjacent_numbers(vertical_buttons, rows)
