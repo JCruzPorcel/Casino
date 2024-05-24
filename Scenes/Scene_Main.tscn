@@ -136,6 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613
 
 [node name="P_Roulette_GridPanels" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" instance=ExtResource("6_dybvj")]
 layout_mode = 1
+enable_double_zero = true
 
 [node name="Chip_Instance_Container" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1

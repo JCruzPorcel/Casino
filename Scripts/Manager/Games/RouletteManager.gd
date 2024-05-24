@@ -65,7 +65,7 @@ func set_cd_timer_visibility():
 			ui_cd_timer.hide()
 #endregion
 
-#region Funciones para cada fase de la ruleta
+#region Roulette Phase Functions
 func idle_phase():
 	GameManager.set_current_game_state(game_id, GameManager.GameStates.Idle)
 	counting = false
