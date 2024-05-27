@@ -23,6 +23,7 @@ anchor_right = 0.533333
 anchor_bottom = 0.559259
 grow_horizontal = 2
 grow_vertical = 2
+fill_mode = 4
 texture_under = ExtResource("1_a7fpp")
 texture_over = ExtResource("2_l2kla")
 texture_progress = ExtResource("1_a7fpp")

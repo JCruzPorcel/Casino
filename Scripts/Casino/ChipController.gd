@@ -1,7 +1,10 @@
 extends HBoxContainer
- 
+
+@export_category("Chip prefab")
 @export var chip_prefab:PackedScene
+@export_category("Chip prefab settings")
 @export var chip_size:Vector2
+@export var value_color_mapping:Array[Color]
 
 var chip_selected
 signal selected_chip_changed(new_chip)
@@ -16,15 +19,14 @@ func set_selected_chip(chip):
 func is_chip_selected(chip)-> bool:
 	return chip == chip_selected
 
-func place_bet(new_position: Vector2):
-	var chip_container = get_node("../Chip_Instance_Container")
+func get_selected_chip() -> Node: 
+	return chip_selected
 
-	if chip_container != null:
-		if chip_selected != null:
-			var new_chip = chip_prefab.instantiate()
-			new_chip.id = chip_selected.id
-			new_chip.color = chip_selected.color
-			new_chip.value = chip_selected.value
-			new_chip.position = new_position
-			new_chip.change_chip_size(chip_size)
-			chip_container.add_child(new_chip)
+func get_chip_prefab()-> PackedScene:
+	return chip_prefab
+
+func get_chip_size()-> Vector2:
+	return chip_size
+
+func get_value_color_mapping()-> Array[Color]:
+	return value_color_mapping

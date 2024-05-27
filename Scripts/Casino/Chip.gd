@@ -16,11 +16,19 @@ func _ready():
 		label_value.text = str(value)
 	change_chip_color(color)
 
+func get_new_id() -> int:
+	var new_id = next_id
+	next_id += 1
+	return new_id
+
 func get_value() -> int:
 	return value
 
 func get_color() -> Color:
 	return color
+
+func get_label()-> Label:
+	return label_value
 
 func find_all_texture_rects(node):
 	for child in node.get_children():
@@ -41,10 +49,5 @@ func change_chip_color(new_color: Color):
 	for chip in chip_textures:
 		chip.modulate = new_color
 
-func get_new_id() -> int:
-	var new_id = next_id
-	next_id += 1
-	return new_id
-
-func change_chip_size(size: Vector2):
-	self.scale = size
+func change_chip_size(new_size: Vector2):
+	self.scale = new_size

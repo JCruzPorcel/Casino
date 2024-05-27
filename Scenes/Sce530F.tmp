@@ -63,9 +63,8 @@ button_icon_atlas = ExtResource("2_4i047")
 
 [node name="RouletteManager" type="Node" parent="=== UTILITIES ===" node_paths=PackedStringArray("ui_cd_timer", "winning_number_label")]
 script = ExtResource("3_5sgxc")
-countdowns = Array[float]([10.5, 5.5, 5.5, 10.5])
 ui_cd_timer = NodePath("../../=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette/UI_Cooldown_Timer")
-winning_number_label = NodePath("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Label_WinNumber")
+winning_number_label = NodePath("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Label_Winning_Number")
 
 [node name="TokenManager" type="Node" parent="=== UTILITIES ===" node_paths=PackedStringArray("tokens_label")]
 script = SubResource("GDScript_wxnwg")
@@ -112,6 +111,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Winning_Number" type="Label" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.236111
+anchor_right = 1.0
+anchor_bottom = 0.387963
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Environment_3D" type="Node3D" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
@@ -169,18 +180,6 @@ color = Color(0.288043, 0.675675, 0.745545, 1)
 layout_mode = 2
 value = 500
 color = Color(0.65517, 0.463049, 0.291394, 1)
-
-[node name="Label_WinNumber" type="Label" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 246.0
-offset_bottom = 345.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 72
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="UI_Bingo" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
 visible = false
@@ -277,16 +276,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label_Game_State" type="Label" parent="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.534896
-anchor_top = 0.154206
-anchor_right = 0.691146
-anchor_bottom = 0.710281
-grow_horizontal = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -839.0
+offset_top = -59.9999
+offset_right = -539.0
+offset_bottom = 59.0001
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "Current Game:
 Current State:"
-metadata/_edit_use_anchors_ = true
 
 [node name="=== BOTTOM PANELS ===" type="Node" parent="=== UI ===/UI_Canvas"]
 
