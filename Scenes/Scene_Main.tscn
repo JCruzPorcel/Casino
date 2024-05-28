@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7i8mhbqcltnj"]
+[gd_scene load_steps=19 format=3 uid="uid://7i8mhbqcltnj"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UIController.gd" id="1_mku6x"]
 [ext_resource type="PackedScene" uid="uid://dnk75o2ahw" path="res://Prefabs/UI/Buttons/P_ButtonGame.tscn" id="1_ohcjn"]
@@ -16,12 +16,13 @@
 [ext_resource type="Script" path="res://Scripts/Casino/ChipController.gd" id="6_xdlg1"]
 [ext_resource type="PackedScene" uid="uid://cap7epia57jts" path="res://Prefabs/UI/Buttons/P_Chip_Instance.tscn" id="8_es3jf"]
 [ext_resource type="PackedScene" uid="uid://ivdl6tb1uqmb" path="res://Prefabs/UI/Buttons/P_ButtonSound.tscn" id="9_0f47f"]
+[ext_resource type="PackedScene" uid="uid://dg5bjrys3ttoy" path="res://Prefabs/UI/Buttons/P_buttonOptions.tscn" id="10_n5vgd"]
 
 [sub_resource type="GDScript" id="GDScript_wxnwg"]
 script/source = "extends Node
 
 @export var tokens_label:Label
-var current_tokens:int = 0
+var current_tokens:int = 10000 
 
 func _ready():
 	update_tokens()
@@ -125,7 +126,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000125647, 0.24058, 1.08613
 
 [node name="P_Roulette_GridPanels" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette" instance=ExtResource("6_dybvj")]
 layout_mode = 1
-enable_double_zero = true
 
 [node name="Chip_Instance_Container" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
@@ -137,7 +137,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+[node name="Chip_Container" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.363021
@@ -155,32 +155,54 @@ chip_size = Vector2(0.35, 0.35)
 value_color_mapping = Array[Color]([Color(0.305979, 0.604025, 0.3263, 1), Color(0.615053, 0.662886, 0.990039, 1), Color(0.998562, 0.488278, 0.411823, 1)])
 metadata/_edit_use_anchors_ = true
 
-[node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container" instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 50
 color = Color(0.643335, 0.293573, 0.641869, 1)
 
-[node name="P_Chip2" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip2" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container" instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 100
 color = Color(0.288043, 0.675675, 0.745545, 1)
 
-[node name="P_Chip3" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer" instance=ExtResource("6_55ne3")]
+[node name="P_Chip3" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container" instance=ExtResource("6_55ne3")]
 layout_mode = 2
 value = 500
 color = Color(0.65517, 0.463049, 0.291394, 1)
 
 [node name="Label_WinNumber" type="Label" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = 0.210185
 anchor_right = 1.0
-offset_top = 246.0
-offset_bottom = 345.0
+anchor_bottom = 0.357407
+offset_bottom = 3.05176e-05
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 72
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Button_Container" type="HBoxContainer" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.78125
+anchor_top = 0.925926
+anchor_right = 0.9375
+anchor_bottom = 0.972222
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="P_ButtonClear" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Button_Container" instance=ExtResource("10_n5vgd")]
+layout_mode = 2
+text = "Limpiar apuestas"
+
+[node name="P_ButtonRepeat" parent="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Button_Container" instance=ExtResource("10_n5vgd")]
+layout_mode = 2
+text = "Repetir apuesta"
 
 [node name="UI_Bingo" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
 visible = false
@@ -324,6 +346,7 @@ grow_vertical = 0
 text = "Salir"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Button_Container/P_ButtonClear" to="=== UTILITIES ===/RouletteManager" method="clear_bets"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Main" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette" method="_on_pressed"]
 [connection signal="pressed" from="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" to="=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Bingo" method="_on_pressed"]

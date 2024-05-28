@@ -9,11 +9,11 @@ var countdown_timer: float = 10.5
 var counting: bool = false
 var phase_count: int = 0
 var game_id = GameManager.GameID.Roulette
-var betted_color
 var betted_numbers_tokens: Dictionary = {}
  
 @onready var grid_panel_controller = get_node("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/P_Roulette_GridPanels")
 @onready var number_colors = grid_panel_controller.number_colors
+@onready var enable_double_zero:bool = grid_panel_controller.enable_double_zero
 
 func _ready():
 	counting = false
@@ -76,11 +76,8 @@ func set_cd_timer_visibility():
 
 #region Roulette Phase Functions
 func idle_phase():
-	GameManager.set_current_game_state(game_id, GameManager.GameStates.Idle)
-	counting = false
 	winning_number_label.text = ''
-	betted_numbers_tokens.clear()
-	clear_children("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Instance_Container")
+	clear_bets()
 
 func betting_phase():
 	GameManager.set_current_game_state(game_id, GameManager.GameStates.Betting)
@@ -107,27 +104,33 @@ func ChangeCount(_gameID, _gameState):
 	counting = true
 
 func random_number()->int:
-	var number_rng:int = randi_range(0,37)
+	var number_rng:int
+	
+	if enable_double_zero:
+		number_rng = randi_range(0,37)
+	else:
+		number_rng = randi_range(0,36)		
 	return number_rng
 
-func set_betted_numbers(numbers: Array, tokens: int, color: String):
+func set_betted_numbers(numbers: Array, tokens: int):
+	# Asignar los tokens a cada número
 	for i in range(numbers.size()):
 		var number = numbers[i]
-		
+
 		if typeof(number) == TYPE_INT:
 			# Si el número ya está en el diccionario, sumamos los nuevos tokens a los existentes
 			if betted_numbers_tokens.has(number):
-				betted_numbers_tokens[number]["tokens"] += tokens
+				betted_numbers_tokens[number] += tokens
 			# Si el número no está en el diccionario, lo añadimos con los tokens nuevos
 			else:
-				betted_numbers_tokens[number] = {"tokens": tokens, "color": color}
+				betted_numbers_tokens[number] = tokens
 
 	var sorted_keys = betted_numbers_tokens.keys()
 	sorted_keys.sort()
-
+	
 	clear_console() #  DEBUG
 	for key in sorted_keys:
-		print("\nNúmero: #", key, " Apuesta: $", betted_numbers_tokens[key]["tokens"], " Color: ", betted_numbers_tokens[key]["color"])
+		print("\nNúmero: #", key, " Apuesta: $", betted_numbers_tokens[key])
 
 func clear_console():
 	# Imprimir 50 líneas en blanco para "limpiar" la consola
@@ -141,8 +144,9 @@ func clear_children(node_path: NodePath):
 			node_to_clear.remove_child(child)
 
 func check_winning_number(winning_number: int):
+	clear_console()
 	if betted_numbers_tokens.has(winning_number):
-		print("¡Número ganador encontrado! Número:", winning_number, "Tokens apostados:", betted_numbers_tokens[winning_number]["tokens"], "Color:", betted_numbers_tokens[winning_number]["color"])
+		print("¡Número ganador encontrado! Número: ", winning_number, " Tokens apostados:", betted_numbers_tokens[winning_number])
 	else:
 		print("El número ganador no está entre los números apostados.")
 
@@ -156,5 +160,13 @@ func get_winning_color(winning_number: int) -> String:
 	elif color_2_numbers.has(winning_number):
 		return grid_controller.color_name_2
 	else:
-		return "Unknown"
+		return "GREEN"
 
+func clear_bets():
+	if GameManager.is_current_state(game_id, GameManager.GameStates.Idle) or GameManager.is_current_state(game_id, GameManager.GameStates.Betting):
+		GameManager.set_current_game_state(game_id, GameManager.GameStates.Idle)
+		counting = false
+		phase_count = 0
+		current_timer = 0
+		betted_numbers_tokens.clear()
+		clear_children("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Instance_Container")

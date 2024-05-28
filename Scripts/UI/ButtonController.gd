@@ -33,7 +33,7 @@ var chip_instance:Control
 var new_label_value:int
 
 @onready var roulette_manager = get_node("/root/Scene_Main/=== UTILITIES ===/RouletteManager")
-@onready var chip_controller = get_node("/root/Scene_Main/=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/HBoxContainer")
+@onready var chip_controller = get_node("/root/Scene_Main/=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container")
 @onready var token_manager = get_node("/root/Scene_Main/=== UTILITIES ===/TokenManager")
 
 func set_button_type(new_button_type: ButtonType, new_color: ColorType):
@@ -139,4 +139,4 @@ func update_label_and_bet_numbers(selected_chip):
 	new_label_value = new_label_value + selected_chip.value
 	var chip_label = chip_instance.get_label()
 	chip_label.text = str(new_label_value)
-	roulette_manager.set_betted_numbers(betted_numbers, selected_chip.value, get_color_type_as_text(color_type))
+	roulette_manager.set_betted_numbers(betted_numbers, selected_chip.value)
