@@ -1,7 +1,7 @@
 extends Node
 
 @export var tokens_label:Label
-var current_tokens:int = 0
+var current_tokens:float = 0
 
 func _ready():
 	update_tokens()
@@ -12,15 +12,15 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		can_bet(500)
 
-func deposit_tokens(amount:int):
+func deposit_tokens(amount:float):
 	current_tokens += amount
 	update_tokens()
 
-func debit_tokens(amount:int):
+func debit_tokens(amount:float):
 	current_tokens -= amount
 	update_tokens()
 
-func can_bet(amount:int)-> bool:
+func can_bet(amount:float)-> bool:
 	if(current_tokens >= amount):
 		debit_tokens(amount)
 	else:

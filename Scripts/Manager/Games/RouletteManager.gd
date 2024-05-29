@@ -9,6 +9,7 @@ var countdown_timer: float = 10.5
 var counting: bool = false
 var phase_count: int = 0
 var game_id = GameManager.GameID.Roulette
+var recovery_tokens:float
 
 # Enum para los tipos de apuestas
 enum BetType {
@@ -151,7 +152,18 @@ func set_betted_numbers(numbers: Array, tokens: int, bet_type: BetType):
 		print_debug("Tipo de apuesta no válido")
 		return
 	
-	betted_numbers_tokens[bet_type].append({"numbers": numbers, "tokens": tokens})
+	var found = false
+	recovery_tokens += tokens
+	
+	for bet in betted_numbers_tokens[bet_type]:
+		if bet["numbers"] == numbers:
+			bet["tokens"] += tokens
+			found = true
+			break
+	
+	# Si no se encontró una apuesta con los mismos números, agregar una nueva
+	if not found:
+		betted_numbers_tokens[bet_type].append({"numbers": numbers, "tokens": tokens})
 	
 	print("Apuestas realizadas:")
 	for bet_type_key in betted_numbers_tokens.keys():
@@ -214,6 +226,7 @@ func clear_bets():
 	counting = false
 	phase_count = 0
 	current_timer = 0
+	recovery_tokens = 0
 	betted_numbers_tokens = {
 		BetType.STRAIGHT_UP: [],
 		BetType.SPLIT: [],
@@ -228,6 +241,8 @@ func clear_bets():
 
 func clear_bets_button():
 	if GameManager.is_current_state(game_id, GameManager.GameStates.Idle) or GameManager.is_current_state(game_id, GameManager.GameStates.Betting):
+		token_manager.deposit_tokens(recovery_tokens)
+		recovery_tokens = 0
 		clear_console()
 		clear_bets()
 
@@ -253,4 +268,3 @@ func pay_out_bets(win_number: int, bet_amount: float, bet_type: BetType) -> floa
 					total_payout += pay_bet_controller.pay_even_money(bet_amount)
 	
 	return total_payout
-	

@@ -154,7 +154,7 @@ func instantiate_new_chip():
 
 	update_label_and_bet_numbers(selected_chip)
 
-	if new_label_value >= 10000:
+	if new_label_value >= 1000:
 		chip_instance.change_chip_color(get_new_color())
 
 	roulette_manager.betting_phase()
