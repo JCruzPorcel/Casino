@@ -142,7 +142,7 @@ func random_number() -> int:
 		number_rng = randi_range(0, 37)
 	else:
 		number_rng = randi_range(0, 36)
-	return 0
+	return number_rng
 
 func set_betted_numbers(numbers: Array, tokens: int, bet_type: BetType):
 	clear_console()
