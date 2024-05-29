@@ -80,7 +80,6 @@ tokens_label = NodePath("../../=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bot
 
 [node name="UI_Canvas" type="CanvasLayer" parent="=== UI ===" node_paths=PackedStringArray("canvases", "video_player", "label_game_states")]
 script = ExtResource("1_mku6x")
-override_start_ui = true
 canvases = [NodePath("=== GAMES ===/UI_Main"), NodePath("=== GAMES ===/UI_Roulette"), NodePath("=== GAMES ===/UI_Bingo"), NodePath("=== GAMES ===/UI_Poker")]
 video_player = NodePath("=== GAMES ===/UI_Main/VideoStreamPlayer")
 label_game_states = NodePath("=== TOP PANELS ===/UI_Top_Panels/Label_Game_State")
@@ -112,6 +111,7 @@ loop = true
 metadata/_edit_use_anchors_ = true
 
 [node name="UI_Roulette" type="Control" parent="=== UI ===/UI_Canvas/=== GAMES ==="]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
