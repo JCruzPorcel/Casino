@@ -104,9 +104,9 @@ func set_special_buttons():
 		$ST_12/Bot/_1_To_18_Even/P_Button_Even,
 		$ST_12/Bot/Odd_19_To_36/P_Button_Odd,
 		$ST_12/Bot/Odd_19_To_36/P_Button_19To36,
-		$"2_To_1/GridContainer/P_Button_Number",
-		$"2_To_1/GridContainer/P_Button_Number2",
-		$"2_To_1/GridContainer/P_Button_Number3",
+		$"2_To_1/GridContainer/P_Button_2To1_1",
+		$"2_To_1/GridContainer/P_Button_2To1_2",
+		$"2_To_1/GridContainer/P_Button_2To1_3",
 		$"ST_12/Bot/Color_Red_Black/P_Button_Color_1",
 		$"ST_12/Bot/Color_Red_Black/P_Button_Color_2"
 	]
@@ -122,9 +122,9 @@ func set_special_buttons():
 		$ST_12/Bot/_1_To_18_Even/P_Button_Even,
 		$ST_12/Bot/Odd_19_To_36/P_Button_Odd,
 		$ST_12/Bot/Odd_19_To_36/P_Button_19To36,
-		$"2_To_1/GridContainer/P_Button_Number",
-		$"2_To_1/GridContainer/P_Button_Number2",
-		$"2_To_1/GridContainer/P_Button_Number3",
+		$"2_To_1/GridContainer/P_Button_2To1_1",
+		$"2_To_1/GridContainer/P_Button_2To1_2",
+		$"2_To_1/GridContainer/P_Button_2To1_3",
 		$ST_12/Bot/P_Button_1ST12,
 		$ST_12/Bot/P_Button_2ND12,
 		$ST_12/Bot/P_Button_3RD12
@@ -162,9 +162,9 @@ func set_special_buttons():
 #endregion
 
 #region 2 to 1 buttons
-	var button_2_to_1_1 = $"2_To_1/GridContainer/P_Button_Number"
-	var button_2_to_1_2 = $"2_To_1/GridContainer/P_Button_Number2"
-	var button_2_to_1_3 = $"2_To_1/GridContainer/P_Button_Number3"
+	var button_2_to_1_1 = $"2_To_1/GridContainer/P_Button_2To1_1"
+	var button_2_to_1_2 = $"2_To_1/GridContainer/P_Button_2To1_2"
+	var button_2_to_1_3 = $"2_To_1/GridContainer/P_Button_2To1_3"
 
 	button_2_to_1_1.set_text_label(_2_to_1)
 	button_2_to_1_2.set_text_label(_2_to_1)

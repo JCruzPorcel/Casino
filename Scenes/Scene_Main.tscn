@@ -9,7 +9,7 @@
 [ext_resource type="VideoStream" path="res://Videos/V_CasinoLoop.ogv" id="2_ot47m"]
 [ext_resource type="Script" path="res://Scripts/Manager/Games/RouletteManager.gd" id="3_5sgxc"]
 [ext_resource type="Texture2D" uid="uid://1bgplkewixc5" path="res://Art/UI/Buttons/Game Icons/S_Roulette.png" id="3_jmwvq"]
-[ext_resource type="Script" path="res://Scripts/Manager/BetManager.gd" id="4_2nr15"]
+[ext_resource type="Script" path="res://Scripts/Manager/PayBetController.gd" id="4_2nr15"]
 [ext_resource type="Texture2D" uid="uid://cdcvum532ot2q" path="res://Art/UI/Buttons/Game Icons/S_Poker.jpg" id="5_sxj6f"]
 [ext_resource type="PackedScene" uid="uid://epabprjp13eb" path="res://Prefabs/UI/P_Cooldown_Timer.tscn" id="5_ufhhb"]
 [ext_resource type="PackedScene" uid="uid://bwee34akuck1u" path="res://Prefabs/UI/Buttons/P_Chip.tscn" id="6_55ne3"]
@@ -23,7 +23,7 @@
 script/source = "extends Node
 
 @export var tokens_label:Label
-var current_tokens:int = 10000 
+var current_tokens:float = 10000 
 
 func _ready():
 	update_tokens()
@@ -34,15 +34,15 @@ func _process(_delta):
 	if Input.is_action_pressed(\"ui_down\"):
 		can_bet(500)
 
-func deposit_tokens(amount:int):
+func deposit_tokens(amount:float):
 	current_tokens += amount
 	update_tokens()
 
-func debit_tokens(amount:int):
+func debit_tokens(amount:float):
 	current_tokens -= amount
 	update_tokens()
 
-func can_bet(amount:int)-> bool:
+func can_bet(amount:float)-> bool:
 	if(current_tokens >= amount):
 		debit_tokens(amount)
 	else:
@@ -69,17 +69,18 @@ countdowns = Array[float]([10.5, 5.5, 5.5, 10.5])
 ui_cd_timer = NodePath("../../=== UI ===/UI_Canvas/=== TOP PANELS ===/UI_Top_Panels/GridContainer_Games/Button_Roulette/UI_Cooldown_Timer")
 winning_number_label = NodePath("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Label_WinNumber")
 
+[node name="PayBetController" type="Node" parent="=== UTILITIES ===/RouletteManager"]
+script = ExtResource("4_2nr15")
+
 [node name="TokenManager" type="Node" parent="=== UTILITIES ===" node_paths=PackedStringArray("tokens_label")]
 script = SubResource("GDScript_wxnwg")
 tokens_label = NodePath("../../=== UI ===/UI_Canvas/=== BOTTOM PANELS ===/UI_Bottom_Panels/Label_Tokens")
-
-[node name="BetManager" type="Node" parent="=== UTILITIES ==="]
-script = ExtResource("4_2nr15")
 
 [node name="=== UI ===" type="Node" parent="."]
 
 [node name="UI_Canvas" type="CanvasLayer" parent="=== UI ===" node_paths=PackedStringArray("canvases", "video_player", "label_game_states")]
 script = ExtResource("1_mku6x")
+override_start_ui = true
 canvases = [NodePath("=== GAMES ===/UI_Main"), NodePath("=== GAMES ===/UI_Roulette"), NodePath("=== GAMES ===/UI_Bingo"), NodePath("=== GAMES ===/UI_Poker")]
 video_player = NodePath("=== GAMES ===/UI_Main/VideoStreamPlayer")
 label_game_states = NodePath("=== TOP PANELS ===/UI_Top_Panels/Label_Game_State")

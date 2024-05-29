@@ -28,9 +28,9 @@ var button_type: ButtonType
 var color_type: ColorType
 var number_id: int
 var betted_numbers: Array = []
-var is_bet_placed:bool
-var chip_instance:Control
-var new_label_value:int
+var is_bet_placed: bool
+var chip_instance: Control
+var new_label_value: int
 
 @onready var roulette_manager = get_node("/root/Scene_Main/=== UTILITIES ===/RouletteManager")
 @onready var chip_controller = get_node("/root/Scene_Main/=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container")
@@ -39,8 +39,11 @@ var new_label_value:int
 func _ready():
 	GameManager.game_state_changed.connect(clear_bets)
 
+func _on_pressed():
+	instantiate_new_chip()
+
 func clear_bets(_gameID, _gameState):
-	if(GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Idle)):
+	if GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Idle):
 		is_bet_placed = false
 		chip_instance = null
 		new_label_value = 0
@@ -67,9 +70,6 @@ func set_rect_color(new_color: Color):
 	var color_rect = get_node("ColorRect")
 	color_rect.color = new_color
 
-func _on_pressed():
-	instantiate_new_chip()
-
 func get_new_color() -> Color:
 	var colors = chip_controller.get_value_color_mapping()
 
@@ -86,6 +86,37 @@ func get_new_color() -> Color:
 		index = colors.size() - 1
 
 	return colors[index]
+
+func button_type_to_string() -> String:
+	match button_type:
+		ButtonType.NUMBER:
+			return "Number"
+		ButtonType.ZERO:
+			return "Zero"
+		ButtonType.DOUBLE_ZERO:
+			return "Double Zero"
+		ButtonType._2_TO_1:
+			return "2 to 1"
+		ButtonType._1ST_12:
+			return "1st 12"
+		ButtonType._2ND_12:
+			return "2nd 12"
+		ButtonType._3RD_12:
+			return "3rd 12"
+		ButtonType._1_TO_18:
+			return "1 to 18"
+		ButtonType._19_TO_36:
+			return "19 to 36"
+		ButtonType.EVEN:
+			return "Even"
+		ButtonType.ODD:
+			return "Odd"
+		ButtonType.COLOR_1:
+			return "Color 1"
+		ButtonType.COLOR_2:
+			return "Color 2"
+		_:
+			return "Unknown"
 
 func get_color_type_as_text(color: ColorType) -> String:
 	match color:
@@ -132,7 +163,7 @@ func can_instantiate_chip() -> bool:
 	return GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Betting) || GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Idle)
 
 func instantiate_chip(selected_chip, chip_instance_container):
-	var new_position = Rect2(global_position, size).position + size / 2 # Button Center Position
+	var new_position = Rect2(global_position, size).position + size / 2  # Button Center Position
 	var chip_prefab = chip_controller.get_chip_prefab()
 	var chip_size = chip_controller.get_chip_size()
 	var new_chip = chip_prefab.instantiate()
@@ -145,7 +176,33 @@ func instantiate_chip(selected_chip, chip_instance_container):
 	chip_instance = new_chip
 
 func update_label_and_bet_numbers(selected_chip):
-	new_label_value = new_label_value + selected_chip.value
+	new_label_value += selected_chip.value
 	var chip_label = chip_instance.get_label()
 	chip_label.text = str(new_label_value)
-	roulette_manager.set_betted_numbers(betted_numbers, selected_chip.value)
+	
+	var bet_type = determine_bet_type()
+	roulette_manager.set_betted_numbers(betted_numbers, selected_chip.value, bet_type)
+
+func determine_bet_type():
+	var bet_type = roulette_manager.BetType
+	
+	match button_type:
+		ButtonType.NUMBER:
+			if betted_numbers.size() == 2:
+				return bet_type.SPLIT
+			elif betted_numbers.size() == 4:
+				return bet_type.CORNER
+			else:
+				return bet_type.STRAIGHT_UP
+		ButtonType.COLOR_1, ButtonType.COLOR_2, ButtonType.EVEN, ButtonType.ODD, ButtonType._1_TO_18, ButtonType._19_TO_36, ButtonType.ZERO, ButtonType.DOUBLE_ZERO:
+			return bet_type.EVEN_MONEY
+		ButtonType._1ST_12, ButtonType._2ND_12, ButtonType._3RD_12, ButtonType._2_TO_1:
+			return bet_type.DOZEN
+		_:
+			if betted_numbers.size() == 2:
+				return bet_type.SPLIT
+			elif betted_numbers.size() == 4:
+				return bet_type.CORNER
+			else:
+				return bet_type.STRAIGHT_UP
+

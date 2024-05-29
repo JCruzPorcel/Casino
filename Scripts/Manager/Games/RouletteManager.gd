@@ -2,18 +2,43 @@ extends Node
 
 @export var countdowns: Array[float] = [10.5, 1, 1.5, 5.5]
 @export var ui_cd_timer: Control
-@export var winning_number_label:Label
+@export var winning_number_label: Label
 
 var current_timer: float = 0
-var countdown_timer: float = 10.5  
+var countdown_timer: float = 10.5
 var counting: bool = false
 var phase_count: int = 0
 var game_id = GameManager.GameID.Roulette
-var betted_numbers_tokens: Dictionary = {}
- 
+
+# Enum para los tipos de apuestas
+enum BetType {
+	STRAIGHT_UP,
+	SPLIT,
+	STREET,
+	CORNER,
+	SIX_LINE,
+	COLUMN,
+	DOZEN,
+	EVEN_MONEY
+}
+
+# Diccionario para almacenar las apuestas, categorizadas por tipo
+var betted_numbers_tokens: Dictionary = {
+	BetType.STRAIGHT_UP: [],
+	BetType.SPLIT: [],
+	BetType.STREET: [],
+	BetType.CORNER: [],
+	BetType.SIX_LINE: [],
+	BetType.COLUMN: [],
+	BetType.DOZEN: [],
+	BetType.EVEN_MONEY: []
+}
+
 @onready var grid_panel_controller = get_node("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/P_Roulette_GridPanels")
 @onready var number_colors = grid_panel_controller.number_colors
-@onready var enable_double_zero:bool = grid_panel_controller.enable_double_zero
+@onready var enable_double_zero: bool = grid_panel_controller.enable_double_zero
+@onready var pay_bet_controller = get_node("PayBetController")
+@onready var token_manager = get_node("../TokenManager")
 
 func _ready():
 	counting = false
@@ -39,7 +64,7 @@ func _process(delta):
 				3:
 					idle_phase()
 				_:
-					print("Fase no válida")
+					print_debug("Fase no válida")
 			
 			# Incrementar la fase
 			phase_count += 1
@@ -91,46 +116,68 @@ func stopped_phase():
 func showing_results_phase():
 	GameManager.set_current_game_state(game_id, GameManager.GameStates.ShowingResults)
 	var win_number = random_number()
-	check_winning_number(win_number)
 	winning_number_label.text = "Winning Number: " + str(win_number) + "\nColor: " + get_winning_color(win_number)
+	
+	if check_winning_number(win_number):
+		var total_payout: float = 0
+		for bet_type in betted_numbers_tokens.keys():
+			for bet in betted_numbers_tokens[bet_type]:
+				total_payout += pay_out_bets(win_number, bet["tokens"], bet_type)
+		print_debug("Total payout:", total_payout)
+		token_manager.deposit_tokens(total_payout)
 #endregion
 
 func ChangeCount(_gameID, _gameState):
-	if(!GameManager.is_current_state(game_id, GameManager.GameStates.Betting)):
+	if !GameManager.is_current_state(game_id, GameManager.GameStates.Betting):
 		return
 	
 	if counting:
 		return
 	counting = true
 
-func random_number()->int:
-	var number_rng:int
+func random_number() -> int:
+	var number_rng: int
 	
 	if enable_double_zero:
-		number_rng = randi_range(0,37)
+		number_rng = randi_range(0, 37)
 	else:
-		number_rng = randi_range(0,36)		
-	return number_rng
+		number_rng = randi_range(0, 36)
+	return 0
 
-func set_betted_numbers(numbers: Array, tokens: int):
-	# Asignar los tokens a cada número
-	for i in range(numbers.size()):
-		var number = numbers[i]
-
-		if typeof(number) == TYPE_INT:
-			# Si el número ya está en el diccionario, sumamos los nuevos tokens a los existentes
-			if betted_numbers_tokens.has(number):
-				betted_numbers_tokens[number] += tokens
-			# Si el número no está en el diccionario, lo añadimos con los tokens nuevos
-			else:
-				betted_numbers_tokens[number] = tokens
-
-	var sorted_keys = betted_numbers_tokens.keys()
-	sorted_keys.sort()
+func set_betted_numbers(numbers: Array, tokens: int, bet_type: BetType):
+	clear_console()
 	
-	clear_console() #  DEBUG
-	for key in sorted_keys:
-		print("\nNúmero: #", key, " Apuesta: $", betted_numbers_tokens[key])
+	if not betted_numbers_tokens.has(bet_type):
+		print_debug("Tipo de apuesta no válido")
+		return
+	
+	betted_numbers_tokens[bet_type].append({"numbers": numbers, "tokens": tokens})
+	
+	print("Apuestas realizadas:")
+	for bet_type_key in betted_numbers_tokens.keys():
+		for bet in betted_numbers_tokens[bet_type_key]:
+			print("Tipo de apuesta:", bet_type_to_string(bet_type_key) + " Números:", bet["numbers"], "Tokens apostados:", bet["tokens"])
+
+func bet_type_to_string(bet_type: BetType) -> String:
+	match bet_type:
+		BetType.STRAIGHT_UP:
+			return "Straight Up"
+		BetType.SPLIT:
+			return "Split"
+		BetType.STREET:
+			return "Street"
+		BetType.CORNER:
+			return "Corner"
+		BetType.SIX_LINE:
+			return "Six Line"
+		BetType.COLUMN:
+			return "Column"
+		BetType.DOZEN:
+			return "Dozen"
+		BetType.EVEN_MONEY:
+			return "Even Money"
+		_:
+			return "Unknown"
 
 func clear_console():
 	# Imprimir 50 líneas en blanco para "limpiar" la consola
@@ -143,12 +190,12 @@ func clear_children(node_path: NodePath):
 		for child in node_to_clear.get_children():
 			node_to_clear.remove_child(child)
 
-func check_winning_number(winning_number: int):
-	clear_console()
-	if betted_numbers_tokens.has(winning_number):
-		print("¡Número ganador encontrado! Número: ", winning_number, " Tokens apostados:", betted_numbers_tokens[winning_number])
-	else:
-		print("El número ganador no está entre los números apostados.")
+func check_winning_number(winning_number: int) -> bool:
+	for bet_type in betted_numbers_tokens.keys():
+		for bet in betted_numbers_tokens[bet_type]:
+			if winning_number in bet["numbers"]:
+				return true
+	return false
 
 func get_winning_color(winning_number: int) -> String:
 	var grid_controller = get_node("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/P_Roulette_GridPanels")
@@ -167,9 +214,43 @@ func clear_bets():
 	counting = false
 	phase_count = 0
 	current_timer = 0
-	betted_numbers_tokens.clear()
+	betted_numbers_tokens = {
+		BetType.STRAIGHT_UP: [],
+		BetType.SPLIT: [],
+		BetType.STREET: [],
+		BetType.CORNER: [],
+		BetType.SIX_LINE: [],
+		BetType.COLUMN: [],
+		BetType.DOZEN: [],
+		BetType.EVEN_MONEY: []
+	}
 	clear_children("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Instance_Container")
 
 func clear_bets_button():
 	if GameManager.is_current_state(game_id, GameManager.GameStates.Idle) or GameManager.is_current_state(game_id, GameManager.GameStates.Betting):
+		clear_console()
 		clear_bets()
+
+func pay_out_bets(win_number: int, bet_amount: float, bet_type: BetType) -> float:
+	var total_payout: float = 0
+	
+	for bet in betted_numbers_tokens[bet_type]:
+		if win_number in bet["numbers"]:
+			match bet_type:
+				BetType.STRAIGHT_UP:
+					total_payout += pay_bet_controller.pay_straight_up(bet_amount)
+				BetType.SPLIT:
+					total_payout += pay_bet_controller.pay_split(bet_amount)
+				BetType.STREET:
+					total_payout += pay_bet_controller.pay_street(bet_amount)
+				BetType.CORNER:
+					total_payout += pay_bet_controller.pay_corner(bet_amount)
+				BetType.SIX_LINE:
+					total_payout += pay_bet_controller.pay_six_line(bet_amount)
+				BetType.COLUMN, BetType.DOZEN:
+					total_payout += pay_bet_controller.pay_column_dozen(bet_amount)
+				BetType.EVEN_MONEY:
+					total_payout += pay_bet_controller.pay_even_money(bet_amount)
+	
+	return total_payout
+	

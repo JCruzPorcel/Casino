@@ -696,15 +696,15 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(42, 116)
 
-[node name="P_Button_Number" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_2To1_1" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(85, 75)
 layout_mode = 2
 
-[node name="P_Button_Number2" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_2To1_2" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(85, 75)
 layout_mode = 2
 
-[node name="P_Button_Number3" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_2To1_3" parent="2_To_1/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(85, 75)
 layout_mode = 2
 

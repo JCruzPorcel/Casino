@@ -14,6 +14,10 @@ var active : int = 0
 func _ready():
 	if not override_start_ui:
 		setup_initial_ui()
+	else:
+		active = get_active_canvas_index()
+	
+	toggle_play_video()
 	
 	_on_game_state_changed(active,GameManager.game_dictionary[active])
 	GameManager.game_state_changed.connect(_on_game_state_changed)
@@ -26,6 +30,12 @@ func setup_initial_ui():
 		else:
 			canvases[i].hide()
 	toggle_visibility(0)
+
+func get_active_canvas_index() -> int:
+	for i in range(canvases.size()):
+		if canvases[i].is_visible_in_tree():
+			return i
+	return 0
 #endregion
 
 #region UI
