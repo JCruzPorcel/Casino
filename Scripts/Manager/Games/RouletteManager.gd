@@ -163,10 +163,13 @@ func get_winning_color(winning_number: int) -> String:
 		return "GREEN"
 
 func clear_bets():
+	GameManager.set_current_game_state(game_id, GameManager.GameStates.Idle)
+	counting = false
+	phase_count = 0
+	current_timer = 0
+	betted_numbers_tokens.clear()
+	clear_children("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Instance_Container")
+
+func clear_bets_button():
 	if GameManager.is_current_state(game_id, GameManager.GameStates.Idle) or GameManager.is_current_state(game_id, GameManager.GameStates.Betting):
-		GameManager.set_current_game_state(game_id, GameManager.GameStates.Idle)
-		counting = false
-		phase_count = 0
-		current_timer = 0
-		betted_numbers_tokens.clear()
-		clear_children("../../=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Instance_Container")
+		clear_bets()

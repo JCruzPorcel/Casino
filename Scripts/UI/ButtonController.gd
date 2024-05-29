@@ -36,6 +36,15 @@ var new_label_value:int
 @onready var chip_controller = get_node("/root/Scene_Main/=== UI ===/UI_Canvas/=== GAMES ===/UI_Roulette/Chip_Container")
 @onready var token_manager = get_node("/root/Scene_Main/=== UTILITIES ===/TokenManager")
 
+func _ready():
+	GameManager.game_state_changed.connect(clear_bets)
+
+func clear_bets(_gameID, _gameState):
+	if(GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Idle)):
+		is_bet_placed = false
+		chip_instance = null
+		new_label_value = 0
+
 func set_button_type(new_button_type: ButtonType, new_color: ColorType):
 	button_type = new_button_type
 	color_type = new_color
