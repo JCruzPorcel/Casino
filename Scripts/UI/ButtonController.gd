@@ -13,7 +13,10 @@ enum ButtonType {
 	EVEN,
 	ODD,
 	COLOR_1,
-	COLOR_2
+	COLOR_2,
+	SIX_LINE,
+	STREET,
+	HORSE
 }
 
 enum ColorType {
@@ -41,6 +44,7 @@ func _ready():
 
 func _on_pressed():
 	instantiate_new_chip()
+	print(betted_numbers)
 
 func clear_bets(_gameID, _gameState):
 	if GameManager.is_current_state(GameManager.GameID.Roulette, GameManager.GameStates.Idle):
@@ -115,6 +119,12 @@ func button_type_to_string() -> String:
 			return "Color 1"
 		ButtonType.COLOR_2:
 			return "Color 2"
+		ButtonType.SIX_LINE:
+			return "Six Line"
+		ButtonType.STREET:
+			return "Street"
+		ButtonType.HORSE:
+			return "Horse"
 		_:
 			return "Unknown"
 
@@ -205,4 +215,3 @@ func determine_bet_type():
 				return bet_type.CORNER
 			else:
 				return bet_type.STRAIGHT_UP
-

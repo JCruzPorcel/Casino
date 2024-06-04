@@ -183,7 +183,7 @@ layout_mode = 2
 [node name="P_Button_34" parent="Numbers/Grid_Numbers/Bot_Row" instance=ExtResource("1_j3hgt")]
 layout_mode = 2
 
-[node name="Grid_Horizontal" type="GridContainer" parent="Numbers"]
+[node name="Grid_Vertical" type="GridContainer" parent="Numbers"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,187 +198,186 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/v_separation = 15
-metadata/_edit_use_anchors_ = true
 
-[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
-[node name="P_Button_3" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_3" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_6" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_6" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_9" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_9" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_12" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_12" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_15" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_15" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_18" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_18" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_21" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_21" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_24" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_24" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_27" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_27" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_30" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_30" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_33" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_33" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+[node name="Mid_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
-[node name="P_Button_2" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_2" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_5" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_5" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_8" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_8" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_11" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_11" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_14" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_14" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_17" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_17" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_20" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_20" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_23" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_23" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_26" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_26" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_29" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_29" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_32" parent="Numbers/Grid_Horizontal/Mid_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_32" parent="Numbers/Grid_Vertical/Mid_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 54
 alignment = 1
 
-[node name="P_Button_1" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_1" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_4" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_4" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_7" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_7" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_10" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_10" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_13" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_13" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_16" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_16" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_19" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_19" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_22" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_22" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_25" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_25" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_28" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_28" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_31" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_31" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(25, 65)
 layout_mode = 2
 flat = true
@@ -522,7 +521,7 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 flat = true
 
-[node name="Grid_Vertical" type="GridContainer" parent="Numbers"]
+[node name="Grid_Horizontal" type="GridContainer" parent="Numbers"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -539,132 +538,132 @@ mouse_filter = 2
 theme_override_constants/v_separation = 55
 metadata/_edit_use_anchors_ = true
 
-[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
+[node name="Top_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 14
 
-[node name="P_Button_3" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_3" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_6" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_6" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_9" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_9" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_12" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_12" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_15" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_15" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_18" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_18" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_21" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_21" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_24" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_24" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_27" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_27" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_30" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_30" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_33" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_33" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_36" parent="Numbers/Grid_Vertical/Top_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_36" parent="Numbers/Grid_Horizontal/Top_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Vertical"]
+[node name="Bot_Row" type="HBoxContainer" parent="Numbers/Grid_Horizontal"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 14
 
-[node name="P_Button_1" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_1" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_4" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_4" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_7" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_7" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_10" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_10" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_13" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_13" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_16" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_16" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_19" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_19" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_22" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_22" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_25" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_25" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_28" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_28" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_31" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_31" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
 
-[node name="P_Button_34" parent="Numbers/Grid_Vertical/Bot_Row" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_34" parent="Numbers/Grid_Horizontal/Bot_Row" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(65, 25)
 layout_mode = 2
 flat = true
@@ -708,6 +707,33 @@ layout_mode = 2
 custom_minimum_size = Vector2(85, 75)
 layout_mode = 2
 
+[node name="Grid_Vertical_Horse_Column" type="VBoxContainer" parent="2_To_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 483.0
+offset_top = -62.0
+offset_right = 568.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(42, 62)
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="P_Button_Horse_2To1_1_2" parent="2_To_1/Grid_Vertical_Horse_Column" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(85, 45)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_Horse_2To1_2_3" parent="2_To_1/Grid_Vertical_Horse_Column" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(85, 45)
+layout_mode = 2
+flat = true
+
 [node name="ST_12" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -722,67 +748,94 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Bot" type="GridContainer" parent="ST_12"]
+[node name="GridContainer" type="GridContainer" parent="ST_12"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -334.0
-offset_top = 129.0
-offset_right = 335.0
-offset_bottom = 288.0
+offset_left = -475.0
+offset_top = 130.0
+offset_right = 475.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(255, 79)
+pivot_offset = Vector2(475, 77)
 columns = 3
-metadata/_edit_use_anchors_ = true
 
-[node name="P_Button_1ST12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_1ST12" parent="ST_12/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
 
-[node name="P_Button_2ND12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_2ND12" parent="ST_12/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
 
-[node name="P_Button_3RD12" parent="ST_12/Bot" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_3RD12" parent="ST_12/GridContainer" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(310, 75)
 layout_mode = 2
 
-[node name="_1_To_18_Even" type="HBoxContainer" parent="ST_12/Bot"]
+[node name="_1_To_18_Even" type="HBoxContainer" parent="ST_12/GridContainer"]
 layout_mode = 2
 
-[node name="P_Button_1To18" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_1To18" parent="ST_12/GridContainer/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
 
-[node name="P_Button_Even" parent="ST_12/Bot/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_Even" parent="ST_12/GridContainer/_1_To_18_Even" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
 
-[node name="Color_Red_Black" type="HBoxContainer" parent="ST_12/Bot"]
+[node name="Color_Red_Black" type="HBoxContainer" parent="ST_12/GridContainer"]
 layout_mode = 2
 
-[node name="P_Button_Color_1" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_Color_1" parent="ST_12/GridContainer/Color_Red_Black" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
 
-[node name="P_Button_Color_2" parent="ST_12/Bot/Color_Red_Black" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_Color_2" parent="ST_12/GridContainer/Color_Red_Black" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
 
-[node name="Odd_19_To_36" type="HBoxContainer" parent="ST_12/Bot"]
+[node name="Odd_19_To_36" type="HBoxContainer" parent="ST_12/GridContainer"]
 layout_mode = 2
 
-[node name="P_Button_Odd" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_Odd" parent="ST_12/GridContainer/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
 
-[node name="P_Button_19To36" parent="ST_12/Bot/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
+[node name="P_Button_19To36" parent="ST_12/GridContainer/Odd_19_To_36" instance=ExtResource("1_j3hgt")]
 custom_minimum_size = Vector2(155, 75)
 layout_mode = 2
+
+[node name="Grid_Vertical_Horse_Dozen" type="HBoxContainer" parent="ST_12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = 130.0
+offset_right = 183.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(182, 37)
+mouse_filter = 2
+theme_override_constants/separation = 275
+alignment = 1
+
+[node name="P_Button_Horse_Dozen_1ST12_2ND12" parent="ST_12/Grid_Vertical_Horse_Dozen" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(45, 75)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_Horse_Dozen_2ND12_3RD12" parent="ST_12/Grid_Vertical_Horse_Dozen" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(45, 75)
+layout_mode = 2
+flat = true
 
 [node name="Zero_Double_Zero" type="Control" parent="."]
 layout_mode = 1
@@ -809,12 +862,72 @@ offset_right = -482.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(37, 40)
+pivot_offset = Vector2(37, 115)
 theme_override_constants/v_separation = 10
-
-[node name="P_Button_0" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
-layout_mode = 2
 
 [node name="P_Button_00" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
 visible = false
+custom_minimum_size = Vector2(75, 110)
 layout_mode = 2
+
+[node name="P_Button_0" parent="Zero_Double_Zero/GridContainer" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(75, 110)
+layout_mode = 2
+
+[node name="Split_Zeros" type="GridContainer" parent="Zero_Double_Zero"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -489.0
+offset_top = -115.0
+offset_right = -464.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12, 116)
+theme_override_constants/v_separation = 23
+
+[node name="P_Button_Split_Top" parent="Zero_Double_Zero/Split_Zeros" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 61.115)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_Split_Mid" parent="Zero_Double_Zero/Split_Zeros" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 61.115)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_Split_Bot" parent="Zero_Double_Zero/Split_Zeros" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 61.115)
+layout_mode = 2
+flat = true
+
+[node name="Center_Zeros" type="GridContainer" parent="Zero_Double_Zero"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -489.0
+offset_top = -53.0
+offset_right = -464.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12, 55)
+mouse_filter = 2
+theme_override_constants/v_separation = 55
+
+[node name="P_Button_Top_Mid" parent="Zero_Double_Zero/Center_Zeros" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true
+
+[node name="P_Button_Center_Bot_Mid" parent="Zero_Double_Zero/Center_Zeros" instance=ExtResource("1_j3hgt")]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+flat = true

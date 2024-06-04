@@ -41,15 +41,15 @@ const numbers_19_to_36: Array[int] = [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29
 @onready var mid_row = $Numbers/Grid_Numbers/Mid_Row.get_children()
 @onready var bot_row = $Numbers/Grid_Numbers/Bot_Row.get_children()
 
-@onready var top_row_horizontal = $Numbers/Grid_Horizontal/Top_Row.get_children()
-@onready var mid_row_horizontal = $Numbers/Grid_Horizontal/Mid_Row.get_children()
-@onready var bot_row_horizontal = $Numbers/Grid_Horizontal/Bot_Row.get_children()
+@onready var top_row_vertical = $Numbers/Grid_Vertical/Top_Row.get_children()
+@onready var mid_row_vertical = $Numbers/Grid_Vertical/Mid_Row.get_children()
+@onready var bot_row_vertical = $Numbers/Grid_Vertical/Bot_Row.get_children()
 
 @onready var top_row_center = $Numbers/Grid_Center/Top_Row.get_children()
 @onready var bot_row_center = $Numbers/Grid_Center/Bot_Row.get_children()
 
-@onready var top_row_vertical = $Numbers/Grid_Vertical/Top_Row.get_children()
-@onready var bot_row_vertical = $Numbers/Grid_Vertical/Bot_Row.get_children()
+@onready var top_row_horizontal = $Numbers/Grid_Horizontal/Top_Row.get_children()
+@onready var bot_row_horizontal = $Numbers/Grid_Horizontal/Bot_Row.get_children()
 #endregion
 var number_colors = {} 
 #endregion
@@ -72,6 +72,11 @@ func set_zero_buttons():
 	zero_button.set_rect_color(zero_color)
 	zero_button.set_betted_numbers([0])
 
+	if not enable_double_zero:
+		zero_button.custom_minimum_size = Vector2(75, 230)
+	else:
+		zero_button.custom_minimum_size = Vector2(75, 110)
+
 	var double_zero_button = $Zero_Double_Zero/GridContainer/P_Button_00
 
 	double_zero_button.visible = enable_double_zero
@@ -84,8 +89,8 @@ func set_zero_buttons():
 
 func set_special_buttons():
 #region Color buttons
-	var button_color_1 = $ST_12/Bot/Color_Red_Black/P_Button_Color_1
-	var button_color_2 = $ST_12/Bot/Color_Red_Black/P_Button_Color_2
+	var button_color_1 = $ST_12/GridContainer/Color_Red_Black/P_Button_Color_1
+	var button_color_2 = $ST_12/GridContainer/Color_Red_Black/P_Button_Color_2
 
 	button_color_1.set_button_type(button_color_1.ButtonType.COLOR_1, button_color_1.ColorType.COLOR_1)
 	button_color_1.set_text_label(color_name_1)
@@ -100,15 +105,15 @@ func set_special_buttons():
 
 #region Number labels with font size adjustment
 	var labels_to_resize = [
-		$ST_12/Bot/_1_To_18_Even/P_Button_1To18,
-		$ST_12/Bot/_1_To_18_Even/P_Button_Even,
-		$ST_12/Bot/Odd_19_To_36/P_Button_Odd,
-		$ST_12/Bot/Odd_19_To_36/P_Button_19To36,
+		$ST_12/GridContainer/_1_To_18_Even/P_Button_1To18,
+		$ST_12/GridContainer/_1_To_18_Even/P_Button_Even,
+		$ST_12/GridContainer/Odd_19_To_36/P_Button_Odd,
+		$ST_12/GridContainer/Odd_19_To_36/P_Button_19To36,
 		$"2_To_1/GridContainer/P_Button_2To1_1",
 		$"2_To_1/GridContainer/P_Button_2To1_2",
 		$"2_To_1/GridContainer/P_Button_2To1_3",
-		$"ST_12/Bot/Color_Red_Black/P_Button_Color_1",
-		$"ST_12/Bot/Color_Red_Black/P_Button_Color_2"
+		$"ST_12/GridContainer/Color_Red_Black/P_Button_Color_1",
+		$"ST_12/GridContainer/Color_Red_Black/P_Button_Color_2"
 	]
 
 	for button in labels_to_resize:
@@ -118,47 +123,44 @@ func set_special_buttons():
 
 #region Assign generic color to other buttons
 	var generic_buttons = [
-		$ST_12/Bot/_1_To_18_Even/P_Button_1To18,
-		$ST_12/Bot/_1_To_18_Even/P_Button_Even,
-		$ST_12/Bot/Odd_19_To_36/P_Button_Odd,
-		$ST_12/Bot/Odd_19_To_36/P_Button_19To36,
+		$ST_12/GridContainer/_1_To_18_Even/P_Button_1To18,
+		$ST_12/GridContainer/_1_To_18_Even/P_Button_Even,
+		$ST_12/GridContainer/Odd_19_To_36/P_Button_Odd,
+		$ST_12/GridContainer/Odd_19_To_36/P_Button_19To36,
 		$"2_To_1/GridContainer/P_Button_2To1_1",
 		$"2_To_1/GridContainer/P_Button_2To1_2",
 		$"2_To_1/GridContainer/P_Button_2To1_3",
-		$ST_12/Bot/P_Button_1ST12,
-		$ST_12/Bot/P_Button_2ND12,
-		$ST_12/Bot/P_Button_3RD12
+		$ST_12/GridContainer/P_Button_1ST12,
+		$ST_12/GridContainer/P_Button_2ND12,
+		$ST_12/GridContainer/P_Button_3RD12
 	]
 
 	for button in generic_buttons:
 		button.set_rect_color(generic_color)
-
 #endregion
 
 #region 1 to 18 & 19 to 36
-	var button_1_to_18 = $ST_12/Bot/_1_To_18_Even/P_Button_1To18
+	var button_1_to_18 = $ST_12/GridContainer/_1_To_18_Even/P_Button_1To18
 	button_1_to_18.set_text_label(_1_to_18)
 	button_1_to_18.set_betted_numbers(numbers_1_to_18)
 	button_1_to_18.set_button_type(button_1_to_18.ButtonType._1_TO_18, button_1_to_18.ColorType.GENERIC)
 
-	var button_19_to_36 = $ST_12/Bot/Odd_19_To_36/P_Button_19To36
+	var button_19_to_36 = $ST_12/GridContainer/Odd_19_To_36/P_Button_19To36
 	button_19_to_36.set_text_label(_19_to_36)
 	button_19_to_36.set_betted_numbers(numbers_19_to_36)
 	button_19_to_36.set_button_type(button_19_to_36.ButtonType._19_TO_36, button_1_to_18.ColorType.GENERIC)
-
 #endregion
 
 #region even & odd
-	var button_even = $ST_12/Bot/_1_To_18_Even/P_Button_Even
+	var button_even = $ST_12/GridContainer/_1_To_18_Even/P_Button_Even
 	button_even.set_text_label(even)
 	button_even.set_betted_numbers(get_even_numbers())
 	button_even.set_button_type(button_even.ButtonType.EVEN, button_even.ColorType.GENERIC)
 
-	var button_odd = $ST_12/Bot/Odd_19_To_36/P_Button_Odd
+	var button_odd = $ST_12/GridContainer/Odd_19_To_36/P_Button_Odd
 	button_odd.set_text_label(odd)
 	button_odd.set_betted_numbers(get_odd_numbers())
 	button_odd.set_button_type(button_odd.ButtonType.ODD, button_odd.ColorType.GENERIC)
-
 #endregion
 
 #region 2 to 1 buttons
@@ -177,13 +179,12 @@ func set_special_buttons():
 	button_2_to_1_1.set_button_type(button_2_to_1_1.ButtonType._2_TO_1, button_2_to_1_1.ColorType.GENERIC)
 	button_2_to_1_2.set_button_type(button_2_to_1_2.ButtonType._2_TO_1, button_2_to_1_2.ColorType.GENERIC)
 	button_2_to_1_3.set_button_type(button_2_to_1_3.ButtonType._2_TO_1, button_2_to_1_3.ColorType.GENERIC)
-
 	#endregion 
 
 #region ST 12 buttons
-	var button_st_12_1 = $ST_12/Bot/P_Button_1ST12
-	var button_st_12_2 = $ST_12/Bot/P_Button_2ND12
-	var button_st_12_3 = $ST_12/Bot/P_Button_3RD12
+	var button_st_12_1 = $ST_12/GridContainer/P_Button_1ST12
+	var button_st_12_2 = $ST_12/GridContainer/P_Button_2ND12
+	var button_st_12_3 = $ST_12/GridContainer/P_Button_3RD12
 
 	button_st_12_1.set_text_label(st_12[0])
 	button_st_12_2.set_text_label(st_12[1])
@@ -300,6 +301,13 @@ func get_color_2_numbers() -> Array[int]:
 
 	return black_numbers
 
+func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, rows: Array):
+	for i in range(1, horizontal_buttons.size()):
+		var left_number = rows[i - 1].betted_numbers[0]
+		var right_number = rows[i].betted_numbers[0]
+		horizontal_buttons[i - 1].set_betted_numbers([left_number, right_number])
+		horizontal_buttons[i].set_betted_numbers([left_number, right_number])
+
 func assign_vertical_adjacent_numbers(vertical_buttons: Array, rows: Array):
 	for i in range(rows[0].size()):
 		var top_number = rows[0][i].betted_numbers[0]
@@ -308,13 +316,6 @@ func assign_vertical_adjacent_numbers(vertical_buttons: Array, rows: Array):
 
 		vertical_buttons[0][i].set_betted_numbers([top_number, mid_number])
 		vertical_buttons[1][i].set_betted_numbers([mid_number, bot_number])
-
-func assign_horizontal_adjacent_numbers(horizontal_buttons: Array, rows: Array):
-	for i in range(1, horizontal_buttons.size()):
-		var left_number = rows[i - 1].betted_numbers[0]
-		var right_number = rows[i].betted_numbers[0]
-		horizontal_buttons[i - 1].set_betted_numbers([left_number, right_number])
-		horizontal_buttons[i].set_betted_numbers([left_number, right_number])
 
 func assign_center_adjacent_numbers(center_buttons: Array, rows: Array):
 	# Asegurarse de que center_buttons tiene dos subarrays
@@ -358,20 +359,20 @@ func assign_adjacents_numbers():
 	]
 
 	var horizontal_buttons = [
-		[top_row, top_row_horizontal],
-		[mid_row, mid_row_horizontal],
-		[bot_row, bot_row_horizontal]
+		top_row_horizontal,
+		bot_row_horizontal
 	]
 
-	for button_pair in horizontal_buttons:
-		assign_horizontal_adjacent_numbers(button_pair[1], button_pair[0])
+	assign_vertical_adjacent_numbers(horizontal_buttons, rows)
 
 	var vertical_buttons = [
-	top_row_vertical,
-	bot_row_vertical
+		[top_row, top_row_vertical],
+		[mid_row, mid_row_vertical],
+		[bot_row, bot_row_vertical]
 	]
 
-	assign_vertical_adjacent_numbers(vertical_buttons, rows)
+	for button_pair in vertical_buttons:
+		assign_horizontal_adjacent_numbers(button_pair[1], button_pair[0])
 
 	var center_buttons = [
 		top_row_center,
@@ -379,4 +380,3 @@ func assign_adjacents_numbers():
 	]
 
 	assign_center_adjacent_numbers(center_buttons, rows)
-
