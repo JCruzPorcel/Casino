@@ -1,1 +1,1 @@
-Prototipo de Ruleta de casino en Godot, primera experiencia utilizando Godot
+### Projecto de Ruleta de casino, primera experiencia utilizando Godot
